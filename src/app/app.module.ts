@@ -2,12 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ServiceComponent } from './components/service/service.component';
 import { HomeComponent } from './components/home/home.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { NewsletterComponent } from './shared/newsletter/newsletter.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ContactComponent } from './components/contact/contact.component';
     HomeComponent,
     FooterComponent,
     GalleryComponent,
-    ContactComponent
+    ContactComponent,
+    NewsletterComponent
   ],
   imports: [
     BrowserModule,

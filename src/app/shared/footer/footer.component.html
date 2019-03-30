@@ -44,20 +44,20 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 wthree-left-right">
-          <h4>Enlaces</h4>
+          <h4>Mapa web</h4>
           <nav class="border-line">
             <ul class="nav flex-column">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" [routerLink]="['/home']">Inicio <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a [routerLink]="['/service']" class="nav-link">Servicios</a>
-                <a href="blog.html" class="nav-link ">Novedades</a>
-                <a href="blog.html" class="nav-link ">Deportes</a>
-                <a href="blog.html" class="nav-link ">Suscribete</a>
-                <a href="gallery.html" class="nav-link">Galeria</a>
-                <a href="contact.html" class="nav-link">Contacto</a>
-                <a href="map.html" class="nav-link">Mapa</a>
+                <a [routerLink]="['/service']" class="nav-link ">Novedades</a>
+                <a [routerLink]="['/service']" class="nav-link ">Deportes</a>
+                <a [routerLink]="['/service']" class="nav-link ">Suscribete</a>
+                <a [routerLink]="['/gallery']" class="nav-link">Galeria</a>
+                <a [routerLink]="['/contact']" class="nav-link">Contacto</a>
+                <a [routerLink]="['/map']" class="nav-link">Mapa</a>
               </li>
             </ul>
           </nav>

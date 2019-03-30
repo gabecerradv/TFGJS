@@ -6,6 +6,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ServiceComponent } from './components/service/service.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     ServiceComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    GalleryComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

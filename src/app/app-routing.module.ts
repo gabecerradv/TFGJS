@@ -4,6 +4,8 @@ import {ServiceComponent} from "./components/service/service.component";
 import {HomeComponent} from "./components/home/home.component";
 import {GalleryComponent} from "./components/gallery/gallery.component";
 import {ContactComponent} from "./components/contact/contact.component";
+import {SportsComponent} from "./components/news/sports/sports.component";
+import {LastNewsComponent} from "./components/news/last-news/last-news.component";
 
 
 const routes: Routes = [
@@ -22,6 +24,14 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'sports',
+    component: SportsComponent
+  },
+  {
+    path: 'last',
+    component: LastNewsComponent
   },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

@@ -9,6 +9,9 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NewsletterComponent } from './shared/newsletter/newsletter.component';
+import { SportsComponent } from './components/news/sports/sports.component';
+import { LastNewsComponent } from './components/news/last-news/last-news.component';
+
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { NewsletterComponent } from './shared/newsletter/newsletter.component';
     FooterComponent,
     GalleryComponent,
     ContactComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    SportsComponent,
+    LastNewsComponent
+
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { NewsletterComponent } from './shared/newsletter/newsletter.component';
 import { SportsComponent } from './components/news/sports/sports.component';
 import { LastNewsComponent } from './components/news/last-news/last-news.component';
-
+import {LoginComponent} from './components/login/login.component';
 
 
 @NgModule({
@@ -25,7 +25,8 @@ import { LastNewsComponent } from './components/news/last-news/last-news.compone
     ContactComponent,
     NewsletterComponent,
     SportsComponent,
-    LastNewsComponent
+    LastNewsComponent,
+    LoginComponent,
 
   ],
   imports: [

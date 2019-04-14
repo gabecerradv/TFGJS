@@ -7,7 +7,16 @@
           <span><img class="logo" src="../../../assets/images/gym-1905523_640.png"></span>
           <h1><a class="navbar-brand" [routerLink]="['home']">Ponte-Fit</a></h1>
         </div>
+          <form class="form-inline my-2 my-lg-0 navbar-light">
+            <h4><a class="navbar-brand">Hola, identificate</a></h4>
+            <button (click)="login()"
+                    *ngIf="!auth.isAuthenticated()"
+                    class="btn btn-outline-light"  type="button" >Ingresar</button>
+            <button (click)="logout()"
+                    *ngIf="auth.isAuthenticated()"
+                    class="btn btn-outline-light"  type="button" >Salir</button>
 
+          </form>
         <div class="clearfix"></div>
       </div>
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -23,9 +32,6 @@
             </li>
             <li class="nav-item" routerLinkActive="active">
               <a [routerLink]="['service']" class="nav-link ">Servicios</a>
-            </li>
-            <li class="nav-item">
-              <a [routerLink]="['gallery']" class="nav-link">Galería</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
@@ -46,7 +52,8 @@
                 Mi cuenta
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" [routerLink]="['login']">Inicio/login</a>
+                <a class="dropdown-item" [routerLink]="['login']">Login</a>
+                <a class="dropdown-item" [routerLink]="['account']">Tu cuenta</a>
               </div>
             </li>
           </ul>

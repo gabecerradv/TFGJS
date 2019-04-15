@@ -17,6 +17,7 @@ import { AccountComponent } from './components/account/account.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {AuthService} from './core/services/auth.service';
+import {AuthGuardService} from './core/services/auth-guard.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import {AuthService} from './core/services/auth.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

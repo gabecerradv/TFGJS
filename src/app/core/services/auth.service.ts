@@ -45,8 +45,7 @@ export class AuthService {
         this.router.navigate(['/']);
       } else if (err) {
         this.router.navigate(['/']);
-        console.log(err);
-      }
+        }
     });
   }
 

@@ -44,13 +44,17 @@
 </div>
 <main>
   <div class="row" *ngIf="profile">
-    <div class="col-md-4">
-      <img [src]="profile.picture">
-      <p>{{profile.given_name}}</p>
-    </div>
-
+    <div class="col-md-2">
+      <img [src]="profile.picture" class="img-fluid">
   </div>
-
+  <div class="col-md-10">
+    <ul class="col-md-8">
+      <li class="list-group-item">{{ profile.name }}</li>
+      <li class="list-group-item">{{ profile.nickname }}</li>
+      <li class="list-group-item">{{ profile.updated_at | date: 'dd MM yyyy' }}</li>
+    </ul>
+  </div>
+  </div>
 </main>
 </body>
 </html>

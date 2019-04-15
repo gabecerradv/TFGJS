@@ -9,13 +9,12 @@ import { AuthService} from '../../core/services/auth.service';
 export class NavbarComponent implements OnInit {
   profile: any;
   id: any;
-  valido: boolean
+  valido: boolean;
   constructor(public auth: AuthService) {
     auth.handleAuthentication();
   }
 
   ngOnInit() {
-    this.comprobarUser();
     this.id = setInterval(() => {
       this.comprobarUser();
     }, 500);
@@ -29,6 +28,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    this.valido = false;
     this.auth.logout();
   }
   comprobarUser() {
@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
         this.profile = profile;
       });
     }
-    if (this.profile != undefined) {
+    if (this.profile !== undefined) {
       this.valido = true;
     }
   }

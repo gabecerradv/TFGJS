@@ -8,7 +8,7 @@
           <h1><a class="navbar-brand" [routerLink]="['home']">Ponte-Fit</a></h1>
         </div>
           <form class="form-inline my-2 my-lg-0 navbar-light">
-            <h4><a class="navbar-brand" *ngIf="auth.isAuthenticated()">Gracias por acceder </a></h4>
+            <h4><a class="navbar-brand" *ngIf="auth.isAuthenticated()">Hola, {{profile.given_name}} </a></h4>
             <h4><a class="navbar-brand" *ngIf="!auth.isAuthenticated()">Hola, identifícate</a></h4>
             <button (click)="login()"
                     *ngIf="!auth.isAuthenticated()"

@@ -14,23 +14,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="keywords" content="fit, deporte, nutrición, cuidarse, gym, gimnasio"/>
-  <script>
-    addEventListener("load", function () {
-      setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-      window.scrollTo(0, 1);
-    }
-  </script>
-
   <link href="//fonts.googleapis.com/css?family=Arimo:400,400i,700,700i" rel="stylesheet">
-
 </head>
 <body>
-
-
-
 <!--banner imagen principal y eslogan-->
 <div class="slides">
   <div class="slide slide--current two-img">
@@ -41,7 +27,7 @@
       <p>El ejercicio regular es un hábito conocido por promover una salud óptima. Tal vez lo odies o tal vez lo
         ames pero, es el hábito más valioso que puedes tener en tu vida.</p>
       <div class="outs_more-buttn">
-        <a href="contact.html">Inscríbete</a>
+        <a [routerLink]="['join']">Inscríbete</a>
       </div>
     </div>
     <div class="slide__img">
@@ -233,10 +219,10 @@
               <div class="ser-back-ground p-lg-4 p-md-4 p-sm-3 p-3 clo-ser-four">
                 <div class="row ">
                   <div class="col-md-4 ser-wthree-icon">
-                    <span class="fab fa-whmcs banner-icon" aria-hidden="true"></span>
+                    <span class="fab fa-slideshare banner-icon" aria-hidden="true"></span>
                   </div>
                   <div class="col-md-8 ser-agile-para px-0">
-                    <h5>Entrenamiento personalizado </h5>
+                    <h5>Personal training </h5>
                     <p>Con nuestros entrenadores personles realizaras tus ejercicios de manera
                       correcta
                       y sin riesgo de lesiones</p>
@@ -247,7 +233,7 @@
           </div>
         </div>
         <div class="col-lg-5 ser-img text-center">
-          <img src="../assets/images/sc1.png" alt="" class="img-fluid">
+          <img src="../../../assets/images/sc1.png" alt="" class="img-fluid">
         </div>
       </div>
     </div>
@@ -479,117 +465,7 @@
     </div>
     <img id="logoPubli" src="../assets/images/logoPublicitario.png">
   </section>
-  <!--//statement-->
-  <!--testimonial-->
-  <section class="testimonial py-lg-4 py-md-3 py-sm-3 py-3">
-    <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-      <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Nuestros fundadores</h3>
-      <div id="carouselExampleControls" class="carousel slider" data-ride="carousel">
-        <div class="carousel-inner text-center">
-          <div class="carousel-item active client-img py-lg-4 py-md-3 py-sm-3 py-2">
-            <div class="img-move">
-              <img class="img-fluid" src="../assets/images/t1.jpg" alt="">
-            </div>
-            <div class="client-matter pt-lg-4 pt-md-3 pt-3">
-              <p>Risueña, comprometida</p>
-              <h6 class="pt-lg-3 pt-2">Alicia Sanchez</h6>
-            </div>
-          </div>
-          <div class="carousel-item client-img py-lg-4 py-md-3 py-sm-3 py-2">
-            <div class="img-move">
-              <img class="img-fluid" src="../assets/images/t55.jpg" alt="">
-            </div>
-            <div class="client-matter pt-lg-4 pt-md-3 pt-3">
-              <p>Desarrolador web</p>
-              <h6 class="pt-lg-3 pt-2">Gabriel Becerra</h6>
-            </div>
-          </div>
-          <div class="carousel-item client-img py-lg-4 py-md-3 py-sm-3 py-2">
-            <div class="img-move">
-              <img class="img-fluid" src="../assets/images/t2.jpg" alt="">
-            </div>
-            <div class="client-matter pt-lg-4 pt-md-3 pt-3">
-              <p>Currante aplicado</p>
-              <h6 class="pt-lg-3 pt-2">Adrian Chelu</h6>
-            </div>
-          </div>
-          <div class="carousel-item client-img py-lg-4 py-md-3 py-sm-3 py-2">
-            <div class="img-move">
-              <img class="img-fluid" src="../assets/images/t33.jpg" alt="">
-            </div>
-            <div class="client-matter pt-lg-4 pt-md-3 pt-3">
-              <p>Cabeza pensante</p>
-              <h6 class="pt-lg-3 pt-2">Felipe Manso</h6>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-  </section>
 </main>
-
-
-
-<script src='../../../assets/js/jquery-2.2.3.min.js'></script>
-<!--//js working-->
-<!-- For-Banner -->
-<script src="../../../assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="../../../assets/js/anime.min.js"></script>
-<script src="../../../assets/js/uncover.js"></script>
-<script src="../../../assets/js/demo1.js"></script>
-<!-- //For-Banner -->
-<!--About OnScroll-Number-Increase-JavaScript -->
-<script src="../../../assets/js/jquery.waypoints.min.js"></script>
-<script src="../../../assets/js/jquery.countup.js"></script>
-<script>
-  $('.counter').countUp();
-</script>
-<!-- //OnScroll-Number-Increase-JavaScript -->
-
-<!-- start-smoth-scrolling -->
-<script src="../../../assets/js/move-top.js"></script>
-<script src="../../../assets/js/easing.js"></script>
-<script>
-  jQuery(document).ready(function ($) {
-    $(".scroll").click(function (event) {
-      event.preventDefault();
-      $('html,body').animate({
-        scrollTop: $(this.hash).offset().top
-      }, 900);
-    });
-  });
-</script>
-<!-- start-smoth-scrolling -->
-<!-- here stars scrolling icon -->
-<script>
-  $(document).ready(function () {
-
-    var defaults = {
-      containerID: 'toTop', // fading element id
-      containerHoverID: 'toTopHover', // fading element hover id
-      scrollSpeed: 1200,
-      easingType: 'linear'
-    };
-
-
-    $().UItoTop({
-      easingType: 'easeOutQuart'
-    });
-
-  });
-</script>
-<!-- //here ends scrolling icon -->
-<!--bootstrap working-->
-<script src="../../../assets/js/bootstrap.min.js"></script>
-<!-- //bootstrap working-->
 </body>
 </html>
 

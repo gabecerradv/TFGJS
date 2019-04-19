@@ -1,0 +1,77 @@
+<!--A Design by W3layouts
+   Author: W3layout - Gabriel Becerra, Felipe Manso, Adrian Chelu
+   Author URL: http://w3layouts.com
+   License: Creative Commons Attribution 3.0 Unported
+   License URL: http://creativecommons.org/licenses/by/3.0/
+   Descripción=Pagina secundaria del sitio www.ponte-fit.com
+   -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ponte-Fit una web sobre deportes y nutrición</title>
+  <!--meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="fit, deporte, nutrición, cuidarse, gym, gimnasio"/>
+  <script>
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+  <link href="//fonts.googleapis.com/css?family=Arimo:400,400i,700,700i" rel="stylesheet">
+</head>
+<body>
+<!--banner imagen principal -->
+<div class="inner_page-banner">
+</div>
+<!--//banner -->
+<!-- short -->
+<div class="using-border py-3">
+  <div class="inner_breadcrumb  ml-4">
+    <ul class="short_ls">
+      <li>
+        <a [routerLink]="['home']">Inicio</a>
+        <span>/ /</span>
+      </li>
+      <li>Login</li>
+    </ul>
+  </div>
+</div>
+<!-- //short-->
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Iniciar sesión</h5>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputEmail">Email</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="checkbox" id="customCheck1">
+                <label for="customCheck1">Recordar contraseña</label>
+
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Iniciar sesión</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

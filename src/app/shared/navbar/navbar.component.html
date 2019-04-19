@@ -1,0 +1,73 @@
+<header>
+  <div class="header-outs" id="home">
+    <div class="header-w3layouts">
+      <div class="header-title">
+
+        <div class="hedder-up">
+          <span><img class="logo" src="../../../assets/images/gym-1905523_640.png"></span>
+          <h1><a class="navbar-brand" [routerLink]="['home']">Ponte-Fit</a></h1>
+        </div>
+        <form class="form-inline my-2 my-lg-0 navbar-light">
+          <h4><a class="navbar-brand" *ngIf="valido">Hola, {{profile.given_name}} </a></h4>
+          <h4><a class="navbar-brand" *ngIf="!valido">Hola, identifícate</a></h4>
+          <button (click)="login()"
+                  *ngIf="!auth.isAuthenticated()"
+                  class="fas fa-user btn btn-outline-light"  type="button" > Ingresar</button>
+          <button (click)="logout()"
+                  *ngIf="auth.isAuthenticated()"
+                  class="fas fa-sign-out-alt btn btn-outline-light"  type="button" > Salir</button>
+
+        </form>
+        <div class="clearfix"></div>
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse  nav-fill " id="navbarSupportedContent">
+          <ul class="navbar-nav nav-pills nav-fill">
+            <li class="nav-item active" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['/home']">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a [routerLink]="['/service']" class="nav-link ">Servicios</a>
+            </li>
+            <li class="nav-item dropdown" routerLinkActive="active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLinkActive="active">
+                Noticias
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                <a class="dropdown-item" [routerLink]="['last']">Novedades</a>
+                <a class="dropdown-item" [routerLink]="['sports']">Deportes</a>
+              </div>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a [routerLink]="['contact']" class="nav-link">Contacto</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Mi cuenta
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown" routerLinkActive="active">
+                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Tu cuenta</a>
+                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Inscríbete</a>
+                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Solicitar prueba gratuita</a>
+                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Seguimiento/Evolución</a>
+                <a class="dropdown-item" [routerLink]="['account']">Crea un plan de entrenamiento</a>
+                <button *ngIf="!auth.isAuthenticated()"
+                        (click)="logout()" class="dropdown-item">Registro</button>
+                <button *ngIf="auth.isAuthenticated()"
+                        (click)="logout()" class="dropdown-item">Salir</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+    </div>
+  </div>
+</header>

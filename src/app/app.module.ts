@@ -13,6 +13,9 @@ import { SportsComponent } from './components/news/sports/sports.component';
 import { LastNewsComponent } from './components/news/last-news/last-news.component';
 import {LoginComponent} from './components/login/login.component';
 import {AuthService} from './core/services/auth.service';
+import { MapComponent } from './components/map/map.component';
+import { AccountComponent } from './components/account/account.component';
+import {AuthGuardService} from './core/services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -27,13 +30,15 @@ import {AuthService} from './core/services/auth.service';
     SportsComponent,
     LastNewsComponent,
     LoginComponent,
+    MapComponent,
+    AccountComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

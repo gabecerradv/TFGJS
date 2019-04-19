@@ -12,7 +12,7 @@ import { NewsletterComponent } from './shared/newsletter/newsletter.component';
 import { SportsComponent } from './components/news/sports/sports.component';
 import { LastNewsComponent } from './components/news/last-news/last-news.component';
 import {LoginComponent} from './components/login/login.component';
-
+import {AuthService} from './core/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import {LoginComponent} from './components/login/login.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

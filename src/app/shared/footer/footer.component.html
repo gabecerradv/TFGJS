@@ -1,73 +1,54 @@
-  <section class="buttom-footer py-lg-4 py-md-3 py-sm-3 py-3">
-    <div class="container py-lg-5 py-md-5 py-sm-4 py-4">
-      <div class="row footer-agile-grids text-center">
-        <div class="col-lg-4 col-md-4 col-sm-12 wthree-left-right">
-          <h4>Sobre nosotros</h4>
-          <div class="abt-footer">
-            <p>Somos un grupo de estudiantes del IES Ciudad escolar, que hemos cursado desarrollo de
-              aplicaciones web y quisimos montar un gimnasio profesional para descargar las tensiones del dia
-              a dia.</p>
+<section class="buttom-footer py-lg-4 py-md-3 py-sm-3 py-3">
+  <div class="container py-lg-5 py-md-5 py-sm-4 py-4">
+    <div class="row footer-agile-grids text-center">
+      <div class="col-lg-6 col-md-6 col-sm-12 wthree-left-right">
+        <h4>Sobre nosotros</h4>
+        <div class="abt-footer">
+          <p>Somos un grupo de estudiantes del IES Ciudad escolar, que hemos cursado desarrollo de
+            aplicaciones web y quisimos montar un gimnasio profesional para descargar las tensiones del dia
+            a dia.</p>
 
-          </div>
-          <div class="bottom-social pt-3">
-            <ul>
-              <li>
-                <a href="http://www.facebook.com">
-                  <span class="fab fa-facebook-f"></span>
-                </a>
-              </li>
-              <li>
-                <a href="http://plus.google.com">
-                  <span class="fab fa-google-plus-g"></span>
-                </a>
-              </li>
-              <li>
-                <a href="http://www.twitter.com">
-                  <span class="fab fa-twitter"></span>
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 wthree-left-right">
-          <h4>Horarios de apertura</h4>
-          <div class="wls-hours-list">
-            <ul>
-              <li class="d-flex">Lunes <span class="time ml-auto"> 9:30-18:30</span></li>
-              <li class="d-flex">Martes <span class="time ml-auto"> 9:30-18:30</span></li>
-              <li class="d-flex">Miercoles<span class="time ml-auto"> 9:30-18:30</span></li>
-              <li class="d-flex">Jueves <span class="time ml-auto"> 9:30-18:30</span></li>
-              <li class="d-flex">Viernes <span class="time ml-auto"> 9:30-18:30</span></li>
-              <li class="d-flex">Sabado <span class="time ml-auto"> 9:30-18:30</span></li>
-              <li class="d-flex">Domingo <span class="time ml-auto">     Cerrado</span></li>
-            </ul>
-          </div>
+        <div class="bottom-social pt-3">
+          <ul>
+            <li>
+              <a href="http://www.facebook.com">
+                <span class="fab fa-facebook-f"></span>
+              </a>
+            </li>
+            <li>
+              <a href="http://plus.google.com">
+                <span class="fab fa-google-plus-g"></span>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.twitter.com">
+                <span class="fab fa-twitter"></span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 wthree-left-right">
-          <h4>Mapa web</h4>
-          <nav class="border-line">
-            <ul class="nav flex-column">
-              <li class="nav-item active">
-                <a class="nav-link" [routerLink]="['/home']">Inicio <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a [routerLink]="['/service']" class="nav-link">Servicios</a>
-                <a [routerLink]="['/last']" class="nav-link ">Novedades</a>
-                <a [routerLink]="['/sports']" class="nav-link ">Deportes</a>
-                <a [routerLink]="['/service']" class="nav-link ">Suscribete</a>
-                <a [routerLink]="['/gallery']" class="nav-link">Galeria</a>
-                <a [routerLink]="['/contact']" class="nav-link">Contacto</a>
-                <a [routerLink]="['/map']" class="nav-link">Mapa</a>
-              </li>
-            </ul>
-          </nav>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 wthree-left-right">
+        <h4>Horarios de apertura</h4>
+        <div class="wls-hours-list">
+          <ul>
+            <li class="d-flex">Lunes <span class="time ml-auto"> 9:30-22:30</span></li>
+            <li class="d-flex">Martes <span class="time ml-auto"> 9:30-22:30</span></li>
+            <li class="d-flex">Miercoles<span class="time ml-auto"> 9:30-22:30</span></li>
+            <li class="d-flex">Jueves <span class="time ml-auto"> 9:30-22:30</span></li>
+            <li class="d-flex">Viernes <span class="time ml-auto"> 9:30-22:30</span></li>
+            <li class="d-flex">Sabado <span class="time ml-auto"> 9:30-22:30</span></li>
+            <li class="d-flex">Domingo <span class="time ml-auto">     Cerrado</span></li>
+          </ul>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <footer>
   <p><a href="#" onclick="window.open('copyright.html', 'Copyright', 'width=500,height=600');">©2019 Ponte-Fit. All
-    Rights Reserved</a> Felipe Manso, Adrian Chelu, Gabriel Becerra <a href="contact.html">Contacte
-    con nosotros</a></p>
+    Rights Reserved</a> | Felipe Manso, Adrian Chelu, Gabriel Becerra | <a href="contact.html">Contacte
+    con nosotros</a> | <a [routerLink]="['/map']" >Mapa</a></p>
 </footer>

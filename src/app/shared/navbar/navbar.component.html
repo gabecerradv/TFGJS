@@ -12,10 +12,10 @@
             <h4><a class="navbar-brand" *ngIf="!valido">Hola, identifícate</a></h4>
             <button (click)="login()"
                     *ngIf="!auth.isAuthenticated()"
-                    class="btn btn-outline-light"  type="button" >Ingresar</button>
+                    class="fas fa-user btn btn-outline-light"  type="button" > Ingresar</button>
             <button (click)="logout()"
                     *ngIf="auth.isAuthenticated()"
-                    class="btn btn-outline-light"  type="button" >Salir</button>
+                    class="fas fa-sign-out-alt btn btn-outline-light"  type="button" > Salir</button>
 
           </form>
         <div class="clearfix"></div>
@@ -54,7 +54,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown" routerLinkActive="active">
                 <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Tu cuenta</a>
-                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Tu suscripcíon</a>
+                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Inscríbete</a>
                 <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Solicitar prueba gratuita</a>
                 <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Seguimiento/Evolución</a>
                 <a class="dropdown-item" [routerLink]="['account']">Crea un plan de entrenamiento</a>

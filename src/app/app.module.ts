@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {AuthService} from './core/services/auth.service';
 import {AuthGuardService} from './core/services/auth-guard.service';
+import { MapComponent } from './components/map/map.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {AuthGuardService} from './core/services/auth-guard.service';
     LastNewsComponent,
     LoginComponent,
     AccountComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,

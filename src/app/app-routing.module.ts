@@ -9,6 +9,7 @@ import {ContactComponent} from "./components/contact/contact.component";
 import {SportsComponent} from "./components/news/sports/sports.component";
 import {LastNewsComponent} from "./components/news/last-news/last-news.component";
 import {LoginComponent} from './components/login/login.component';
+import {MapComponent} from './components/map/map.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'last',
     component: LastNewsComponent
+  },
+  {
+    path: 'map',
+    component: MapComponent
   },
   {
     path: 'login',

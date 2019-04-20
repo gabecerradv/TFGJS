@@ -113,6 +113,8 @@ ul {
 
 .header-title{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 .user{
     color: #ffffff !important;
@@ -121,22 +123,39 @@ ul {
     width: 40%;
    }
 @media(min-width:500px){
+    .header-title{
+        display: flex;
+
+    }
     .logo{
         width: 30%;
         }
 }
 
 @media(min-width:600px){
+    .header-title{
+        display: flex;
+
+    }
     .logo{
         width: 20%;
     }
 }
 @media(min-width:700px){
+    .header-title{
+        display: flex;
+    }
     .logo{
         width: 15%;
     }
 }
 @media(min-width:800px){
+    .header-title{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-end
+
+    }
     .logo{
         width: 10%;
     }
@@ -1302,7 +1321,12 @@ h5.modal-title {
     font-size: 0.8125rem;
     margin-top: 1.5625rem;
     padding: 0.5rem 1.25rem;
-}	
+}
+    .outs_more-buttn button {
+        font-size: 0.8125rem;
+        margin-top: 1.5625rem;
+        padding: 0.5rem 1.25rem;
+    }
 .white-left span,.ser-wthree-icon span {
     font-size: 2.5625rem;
 }
@@ -1703,6 +1727,10 @@ h5.modal-title {
     margin-top: 1.1875rem;
     padding: 0.5rem 10.5rem;
 }
+    .outs_more-buttn button {
+        margin-top: 1.1875rem;
+        padding: 0.5rem 10.5rem;
+    }
 .outs-about-buttn a {
     letter-spacing: 0.0625rem;
     margin-top: 1.125rem;
@@ -2088,6 +2116,9 @@ h5.modal-title {
 .outs_more-buttn a {
     letter-spacing: 0.0625rem;
 }
+    .outs_more-buttn button {
+        letter-spacing: 0.0625rem;
+    }
 .agile-abt-info h2, .ser-list-using-agile h4 {
     font-size: 1.3125rem;
 }

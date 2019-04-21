@@ -12,6 +12,7 @@ import {LoginComponent} from './components/login/login.component';
 import {MapComponent} from './components/map/map.component';
 import {RegisterComponent} from "./components/register/register.component";
 import {PurchaseComponent} from "./components/purchase/purchase.component";
+import {FreeDayComponent} from "./components/free-day/free-day.component";
 
 
 const routes: Routes = [
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'purchase',
     component: PurchaseComponent
+  },
+  {
+    path: 'free',
+    component: FreeDayComponent
   },
   {
     path: 'login',

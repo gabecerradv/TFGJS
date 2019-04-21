@@ -18,6 +18,7 @@ import { AccountComponent } from './components/account/account.component';
 import {AuthGuardService} from './core/services/auth-guard.service';
 import { RegisterComponent } from './components/register/register.component';
 import { PurchaseComponent } from './components/purchase/purchase.component';
+import { FreeDayComponent } from './components/free-day/free-day.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PurchaseComponent } from './components/purchase/purchase.component';
     AccountComponent,
     RegisterComponent,
     PurchaseComponent,
+    FreeDayComponent,
 
   ],
   imports: [

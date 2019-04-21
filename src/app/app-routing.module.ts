@@ -10,6 +10,8 @@ import {SportsComponent} from './components/news/sports/sports.component';
 import {LastNewsComponent} from './components/news/last-news/last-news.component';
 import {LoginComponent} from './components/login/login.component';
 import {MapComponent} from './components/map/map.component';
+import {RegisterComponent} from "./components/register/register.component";
+import {PurchaseComponent} from "./components/purchase/purchase.component";
 
 
 const routes: Routes = [
@@ -41,6 +43,14 @@ const routes: Routes = [
   {
     path: 'map',
     component: MapComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'purchase',
+    component: PurchaseComponent
   },
   {
     path: 'login',

@@ -70,20 +70,26 @@
                 </div>
                 <div class="row contact-wls-detail">
                     <div class="col-lg-6 contact-form pb-lg-3 pb-2">
-                        <form action="formSent.html" method="post">
+                        <form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="">
 
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Nombre:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
 
                                     <input type="text" class="form-control" id="nombre"
-                                           name="obligatorio"
+                                           name="nombre"
+                                           ngModel
                                            pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{2,}$"
                                            placeholder="*Nombre"
-                                           oninput="setCustomValidity(''); activarCasilla()"
-                                           oninvalid="setCustomValidity('Por favor rellene el campo '+id+' correctamente');this.value=''; "
                                            required="required"
-                                           title="ej: Iván">
+                                           title="ej: Iván"
+                                           #nombre="ngModel">
+                                    <div *ngIf="nombre.errors?.required">
+                                        Este campo es obligatorio
+                                    </div>
+                                    <div *ngIf="nombre.errors?.pattern">
+                                        Este campo sólo puede contener letras (2 mínimo)
+                                    </div>
                                 </div>
                             </div>
 
@@ -91,27 +97,39 @@
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*1º apellido:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
                                     <input type="text" class="form-control" id="1ºapellido"
-                                           name="obligatorio"
+                                           name="apellido"
+                                           ngModel
                                            required="required"
                                            placeholder="*1º apellido"
-                                           oninput="setCustomValidity('');activarCasilla()"
-                                           oninvalid="setCustomValidity('Por favor rellene el campo '+id+' correctamente');this.value='';"
                                            pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{2,}$"
-                                           title="ej: Pérez">
+                                           title="ej: Pérez"
+                                           #apellido="ngModel">
+                                    <div *ngIf="apellido.errors?.required">
+                                        Este campo es obligatorio
+                                    </div>
+                                    <div *ngIf="apellido.errors?.pattern">
+                                        Este campo sólo puede contener letras (2 mínimo)
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*2º apellido:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
-                                    <input type="text" class="form-control" id="2ºapellido"
-                                           name="obligatorio"
+                                    <input type="text" class="form-control" id="apellido2"
+                                           name="apellido2"
+                                           ngModel
                                            pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{2,}$"
-                                           oninput="setCustomValidity('');activarCasilla()"
-                                           oninvalid="setCustomValidity('Por favor rellene el campo '+id+' correctamente');this.value=''; "
                                            placeholder="*2º apellido"
                                            required="required"
-                                           title="ej: García">
+                                           title="ej: García"
+                                           #apellido2="ngModel">
+                                    <div *ngIf="apellido2.errors?.required">
+                                        Este campo es obligatorio
+                                    </div>
+                                    <div *ngIf="apellido2.errors?.pattern">
+                                        Este campo sólo puede contener letras (2 mínimo)
+                                    </div>
                                 </div>
                             </div>
 
@@ -121,25 +139,37 @@
 
                                     <input type="email" class="form-control"
                                            placeholder="*Email" id="email"
-                                           name="obligatorio"
+                                           name="email"
+                                           ngModel
                                            pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
                                            title="ejemplo@hotmail.com"
-                                           oninput="setCustomValidity('');activarCasilla()"
-                                           oninvalid="setCustomValidity('Por favor rellene el campo '+id+' correctamente');this.value=''; "
-                                           required="required">
+                                           required="required"
+                                           #email="ngModel">
+                                    <div *ngIf="email.errors?.required">
+                                        Este campo es obligatorio
+                                    </div>
+                                    <div *ngIf="email.errors?.pattern">
+                                        Este campo debe ser un correo electrónico válido
+                                    </div>
                                 </div>
                             </div>
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Nick:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
                                     <input type="text" class="form-control" id="nick"
-                                           name="obligatorio"
-                                           pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{2,}$"
-                                           oninput="setCustomValidity('');activarCasilla()"
-                                           oninvalid="setCustomValidity('Por favor rellene el campo '+id+' correctamente');this.value=''; "
+                                           name="nick"
+                                           ngModel
+                                           pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\d]{4,15}$"
                                            placeholder="Nick"
                                            required="required"
-                                           title="ej: García">
+                                           title="ej: García"
+                                           #nick="ngModel">
+                                    <div *ngIf="nick.errors?.required">
+                                        Este campo es obligatorio
+                                    </div>
+                                    <div *ngIf="nick.errors?.pattern">
+                                        La longitud del del nick debe estar entre 4 y 15 caracteres y estar formada por numeros y letras
+                                    </div>
                                 </div>
                             </div>
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
@@ -148,40 +178,58 @@
                                     <input type="email" class="form-control"
                                            placeholder="*DNI"
                                            id="DNI"
-                                           name="obligatorio"
-                                           pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                                           ngModel
+                                           pattern="^\d{8}[a-zA-Z]{1}$"
+                                           required
+                                           name="dni"
                                            title="DNI"
-                                           oninput="setCustomValidity('');activarCasilla()"
-                                           oninvalid="setCustomValidity('Por favor rellene el campo '+id+' correctamente');this.value=''; "
-                                           required="required">
+                                           #DNI="ngModel">
+                                    <div *ngIf="DNI.errors?.required">
+                                        Este campo es obligatorio
+                                    </div>
+                                    <div *ngIf="DNI.errors?.pattern">
+                                        Debe introducir un dni válido
+                                    </div>
                                 </div>
                             </div>
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Pasword:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
                                     <input type="tel"
+                                           ngModel
                                            class="form-control"
-                                           pattern="^[67]\d{8}$"
+                                           pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\d]{8,}$"
                                            id="Pasword1"
-                                           required="required"
-                                           name="obligatorio"
-                                           oninput="setCustomValidity('');activarCasilla()"
-                                           oninvalid="setCustomValidity('Por favor rellene el campo '+id+' correctamente');this.value=''; "
-                                           placeholder="*Password">
+                                           name="Pasword1"
+                                           placeholder="*Password"
+                                           #Pasword1="ngModel"
+                                           required>
+                                    <div *ngIf="Pasword1.errors?.required">
+                                        Este campo es obligatorio
+                                    </div>
+                                    <div *ngIf="Pasword1.errors?.pattern">
+                                        La longitud de la contraseña debe tener minimo 8 caracteres y estar formada por numeros y letras
+                                    </div>
                                 </div>
                             </div>
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Repite Pasword:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
                                     <input type="tel"
+                                           ngModel
                                            class="form-control"
-                                           pattern="^[67]\d{8}$"
+                                           pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\d]{8,}$"
                                            id="Pasword2"
-                                           required="required"
-                                           name="obligatorio"
-                                           oninput="setCustomValidity('');activarCasilla()"
-                                           oninvalid="setCustomValidity('Por favor rellene el campo '+id+' correctamente');this.value=''; "
-                                           placeholder="*Repite Password">
+                                           name="Pasword2"
+                                           placeholder="*Repite Password"
+                                           #Pasword2="ngModel"
+                                            required>
+                                    <div *ngIf="Pasword2.errors?.required">
+                                        Este campo es obligatorio
+                                    </div>
+                                    <div *ngIf="Pasword2.errors?.pattern">
+                                        La longitud de la contraseña debe tener minimo 8 caracteres y estar formada por numeros y letras
+                                    </div>
                                 </div>
                             </div>
 
@@ -189,7 +237,7 @@
                                    id="terminos"
                                    onclick="activarEnvio()"
                                    required="required"
-                                   disabled="disabled">
+                                   >
                             <label> *Acepto los términos y condiciones de uso</label>
 
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">

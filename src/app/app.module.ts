@@ -19,6 +19,7 @@ import {AuthGuardService} from './core/services/auth-guard.service';
 import { RegisterComponent } from './components/register/register.component';
 import { PurchaseComponent } from './components/purchase/purchase.component';
 import { FreeDayComponent } from './components/free-day/free-day.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FreeDayComponent } from './components/free-day/free-day.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]

@@ -70,6 +70,16 @@ input[type="button"],input[type="submit"],textarea{
 	letter-spacing: 0.0625rem;
 	
 }
+
+.ng-invalid.ng-touched:not(form){
+    border: 3px solid red !important;
+}
+
+.ng-valid:not(form){
+    border: 3px solid #47c19b !important;
+}
+
+
 /*titulos*/
 h1,
 h2,
@@ -1015,8 +1025,7 @@ a.w3_play_icon1:hover {
     color: #000;
     padding:.8em .8em ;
     border: none;
-    border-radius: 0;
-    border-bottom: 0.125rem solid #fe625b;
+    border-radius: 0.5rem;
     background: #eaeaea;
     outline: none; /*quito !important*/
     white-space: nowrap;

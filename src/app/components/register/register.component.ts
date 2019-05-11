@@ -15,7 +15,6 @@ export class RegisterComponent implements OnInit {
   }
 
   guardar( forma: NgForm ){
-    console.log("formulario enviado");
     console.log(forma);
     console.log(forma.value);
 

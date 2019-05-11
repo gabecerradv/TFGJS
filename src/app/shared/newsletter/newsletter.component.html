@@ -4,17 +4,28 @@
     <h3 class="title clr text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Suscríbete</h3>
     <div class="row subscribe-form text-center">
       <div class="col-md-6 email-sub-agile">
-        <form action="formSent.html" method="post">
+        <form (ngSubmit)="guardar(forma)" #forma="ngForm">
           <div class="form-group ">
-            <input type="email" class="form-control email-sub-agile" placeholder="Email"
+            <input type="email" class="form-control"
+                   placeholder="*Email" id="email"
+                   name="email"
+                   ngModel
                    pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
                    title="ejemplo@hotmail.com"
-                   oninput="setCustomValidity('');"
-                   oninvalid="setCustomValidity('Por favor rellene el campo '+id+' correctamente');this.value=''; "
-                   required="required">
+                   required="required"
+                   #email="ngModel">
+            <div class="clr" *ngIf="email.errors?.required && email.dirty">
+              Este campo es obligatorio
+            </div>
+            <div class="clr" *ngIf="email.errors?.pattern">
+              Este campo debe ser un correo electrónico válido
+            </div>
           </div>
           <div class="text-center">
-            <button type="submit" class="btn subscrib-btnn">Enviar</button>
+            <button type="submit" id="envio" class="btn sent-butnn btn-lg"
+                    [ngClass]="{'button_disabled': forma.invalid}">
+              Enviar
+            </button>
           </div>
         </form>
       </div>

@@ -127,21 +127,21 @@
                 </div>
                 <div class="row contact-wls-detail">
                     <div class="col-lg-6 contact-form pb-lg-3 pb-2">
-                        <form action="formSent.html" method="post">
+                        <form (ngSubmit)="guardar(forma)" #forma="ngForm">
 
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Tipo de plan:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
 
                                     <select class="form-control"
+                                            ngModel="3"
                                             id="plan"
-                                            name="obligatorio"
-                                            onclick="activarCasilla()"
-                                            oninvalid="setCustomValidity('Por favor rellene el campo '+id+'.');this.value=''; "
+                                            name="plan"
                                             required="required">
+                                        <option value="">Seleccione</option>
                                         <option value="1">Silver</option>
                                         <option value="2">Gold</option>
-                                        <option value="3" selected="selected">Diamond</option>
+                                        <option value="3">Diamond</option>
 
                                     </select>
                                 </div>
@@ -151,13 +151,12 @@
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Duracion:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
                                     <select class="form-control"
+                                            ngModel="3"
                                             id="duracion"
-                                            name="obligatorio"
-                                            onclick="activarCasilla()"
-                                            oninvalid="setCustomValidity('Por favor rellene el campo '+id+'.');this.value=''; "
+                                            name="duracion"
                                             required="required">
                                         <option value="1">3 meses</option>
-                                        <option value="2" selected="selected">6 meses</option>
+                                        <option value="2">6 meses</option>
                                         <option value="3">12 meses</option>
 
                                     </select>
@@ -167,10 +166,11 @@
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Fecha de inicio:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
-                                    <input type="date" class="form-control" id="inicio"
-                                           name="obligatorio"
-                                           oninput="setCustomValidity('');activarCasilla()"
-                                           oninvalid="setCustomValidity('Por favor rellene el campo '+id+' correctamente');this.value=''; "
+                                    <input type="date" class="form-control"
+                                           ngModel
+                                           id="inicio"
+                                           name="inicio"
+                                           min="2019-06-17"
                                            required="required">
                                 </div>
                             </div>
@@ -179,10 +179,9 @@
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Forma de pago:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
                                     <select class="form-control"
+                                            ngModel="1"
                                             id="pago"
-                                            name="obligatorio"
-                                            onclick="activarCasilla()"
-                                            oninvalid="setCustomValidity('Por favor rellene el campo '+id+'.');this.value=''; "
+                                            name="forma_pago"
                                             required="required">
                                         <option value="1">Pago domiciliado</option>
                                         <option value="2" selected="selected">Pago con tarjeta</option>
@@ -192,17 +191,20 @@
 
 
                             <input type="checkbox"
+                                   ngModel
+                                   name="check"
                                    id="terminos"
-                                   onclick="activarEnvio()"
                                    required="required"
-                                   disabled="disabled">
+                                   #check="ngModel">
+
                             <label> *Acepto los términos y condiciones de uso</label>
 
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
 
                                 <div class="col-lg-12 col-md-12 form-group contact-forms">
-                                    <button type="submit" id="envio" class="btn sent-butnn btn-lg" disabled="disabled">
-                                        Contratar
+                                    <button type="submit" id="envio" class="btn sent-butnn btn-lg"
+                                            [ngClass]="{'button_disabled': forma.invalid}">
+                                        Enviar
                                     </button>
                                 </div>
                             </div>

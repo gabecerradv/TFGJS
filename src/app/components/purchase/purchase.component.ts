@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from "@angular/forms";
+import {AuthService} from "../../core/services/auth.service";
 
 @Component({
   selector: 'app-purchase',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchaseComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) {
+    auth.handleAuthentication();
+  }
 
   ngOnInit() {
   }
 
+  guardar( forma: NgForm ){
+    console.log(forma);
+    console.log(forma.value);
+
+  }
 }

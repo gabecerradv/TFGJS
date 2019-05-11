@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-free-day',
@@ -12,4 +13,9 @@ export class FreeDayComponent implements OnInit {
   ngOnInit() {
   }
 
+  guardar( forma: NgForm ){
+    console.log(forma);
+    console.log(forma.value);
+
+  }
 }

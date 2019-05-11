@@ -70,9 +70,9 @@
                 </div>
                 <div class="row contact-wls-detail">
                     <div class="col-lg-6 contact-form pb-lg-3 pb-2">
-                        <form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="">
+                        <form (ngSubmit)="guardar(forma)" #forma="ngForm">
 
-                            <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
+                            <div class="row agile-wls-contact-mid mb-lg-4 mb-3" >
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Nombre:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
 
@@ -84,7 +84,7 @@
                                            required="required"
                                            title="ej: Iván"
                                            #nombre="ngModel">
-                                    <div *ngIf="nombre.errors?.required">
+                                    <div *ngIf="nombre.errors?.required && nombre.dirty">
                                         Este campo es obligatorio
                                     </div>
                                     <div *ngIf="nombre.errors?.pattern">
@@ -104,7 +104,7 @@
                                            pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{2,}$"
                                            title="ej: Pérez"
                                            #apellido="ngModel">
-                                    <div *ngIf="apellido.errors?.required">
+                                    <div *ngIf="apellido.errors?.required && apellido.dirty">
                                         Este campo es obligatorio
                                     </div>
                                     <div *ngIf="apellido.errors?.pattern">
@@ -124,7 +124,7 @@
                                            required="required"
                                            title="ej: García"
                                            #apellido2="ngModel">
-                                    <div *ngIf="apellido2.errors?.required">
+                                    <div *ngIf="apellido2.errors?.required && apellido2.dirty">
                                         Este campo es obligatorio
                                     </div>
                                     <div *ngIf="apellido2.errors?.pattern">
@@ -145,7 +145,7 @@
                                            title="ejemplo@hotmail.com"
                                            required="required"
                                            #email="ngModel">
-                                    <div *ngIf="email.errors?.required">
+                                    <div *ngIf="email.errors?.required && email.dirty">
                                         Este campo es obligatorio
                                     </div>
                                     <div *ngIf="email.errors?.pattern">
@@ -164,7 +164,7 @@
                                            required="required"
                                            title="ej: García"
                                            #nick="ngModel">
-                                    <div *ngIf="nick.errors?.required">
+                                    <div *ngIf="nick.errors?.required && nick.dirty">
                                         Este campo es obligatorio
                                     </div>
                                     <div *ngIf="nick.errors?.pattern">
@@ -179,12 +179,12 @@
                                            placeholder="*DNI"
                                            id="DNI"
                                            ngModel
-                                           pattern="^\d{8}[a-zA-Z]{1}$"
+                                           pattern="^[0-9]{8}[a-zA-Z]{1}$"
                                            required
                                            name="dni"
                                            title="DNI"
                                            #DNI="ngModel">
-                                    <div *ngIf="DNI.errors?.required">
+                                    <div *ngIf="DNI.errors?.required && DNI.dirty">
                                         Este campo es obligatorio
                                     </div>
                                     <div *ngIf="DNI.errors?.pattern">
@@ -195,7 +195,7 @@
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Pasword:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
-                                    <input type="tel"
+                                    <input type="password"
                                            ngModel
                                            class="form-control"
                                            pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\d]{8,}$"
@@ -204,7 +204,7 @@
                                            placeholder="*Password"
                                            #Pasword1="ngModel"
                                            required>
-                                    <div *ngIf="Pasword1.errors?.required">
+                                    <div *ngIf="Pasword1.errors?.required && Pasword1.dirty">
                                         Este campo es obligatorio
                                     </div>
                                     <div *ngIf="Pasword1.errors?.pattern">
@@ -215,7 +215,7 @@
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Repite Pasword:</label>
                                 <div class="col-lg-8 col-md-8 form-group contact-forms">
-                                    <input type="tel"
+                                    <input type="password"
                                            ngModel
                                            class="form-control"
                                            pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ\d]{8,}$"
@@ -224,7 +224,7 @@
                                            placeholder="*Repite Password"
                                            #Pasword2="ngModel"
                                             required>
-                                    <div *ngIf="Pasword2.errors?.required">
+                                    <div *ngIf="Pasword2.errors?.required && Pasword2.dirty">
                                         Este campo es obligatorio
                                     </div>
                                     <div *ngIf="Pasword2.errors?.pattern">
@@ -234,16 +234,18 @@
                             </div>
 
                             <input type="checkbox"
+                                   ngModel
+                                   name="check"
                                    id="terminos"
-                                   onclick="activarEnvio()"
                                    required="required"
+                                   #check="ngModel"
                                    >
                             <label> *Acepto los términos y condiciones de uso</label>
 
                             <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
 
                                 <div class="col-lg-12 col-md-12 form-group contact-forms">
-                                    <button type="submit" id="envio" class="btn sent-butnn btn-lg" disabled="disabled">
+                                    <button type="submit" id="envio" class="btn sent-butnn btn-lg" [ngClass]="{'button_disabled': forma.invalid}">
                                         Enviar
                                     </button>
                                 </div>

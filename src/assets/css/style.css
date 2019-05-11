@@ -71,12 +71,17 @@ input[type="button"],input[type="submit"],textarea{
 	
 }
 
-.ng-invalid.ng-touched:not(form){
+.ng-invalid.ng-dirty:not(form){
     border: 3px solid red !important;
+    color: red !important;
 }
 
 .ng-valid:not(form){
     border: 3px solid #47c19b !important;
+}
+
+.button_disabled{
+    background-color: gray !important;
 }
 
 

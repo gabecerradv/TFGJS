@@ -10,6 +10,9 @@ import {SportsComponent} from './components/news/sports/sports.component';
 import {LastNewsComponent} from './components/news/last-news/last-news.component';
 import {LoginComponent} from './components/login/login.component';
 import {MapComponent} from './components/map/map.component';
+import {RegisterComponent} from "./components/register/register.component";
+import {PurchaseComponent} from "./components/purchase/purchase.component";
+import {FreeDayComponent} from "./components/free-day/free-day.component";
 
 
 const routes: Routes = [
@@ -43,6 +46,18 @@ const routes: Routes = [
     component: MapComponent
   },
   {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'purchase',
+    component: PurchaseComponent
+  },
+  {
+    path: 'free',
+    component: FreeDayComponent
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
@@ -50,7 +65,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: "enabled"})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

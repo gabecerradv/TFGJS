@@ -70,6 +70,25 @@ input[type="button"],input[type="submit"],textarea{
 	letter-spacing: 0.0625rem;
 	
 }
+
+.ng-invalid.ng-dirty:not(form){
+    border: 3px solid red !important;
+    color: red !important;
+}
+
+.ng-valid:not(form){
+    border: 3px solid #47c19b !important;
+}
+
+.validation-invalid{
+    color: red !important;
+}
+
+.button_disabled{
+    background-color: gray !important;
+}
+
+
 /*titulos*/
 h1,
 h2,
@@ -113,6 +132,8 @@ ul {
 
 .header-title{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 .user{
     color: #ffffff !important;
@@ -121,22 +142,39 @@ ul {
     width: 40%;
    }
 @media(min-width:500px){
+    .header-title{
+        display: flex;
+
+    }
     .logo{
         width: 30%;
         }
 }
 
 @media(min-width:600px){
+    .header-title{
+        display: flex;
+
+    }
     .logo{
         width: 20%;
     }
 }
 @media(min-width:700px){
+    .header-title{
+        display: flex;
+    }
     .logo{
         width: 15%;
     }
 }
 @media(min-width:800px){
+    .header-title{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-end
+
+    }
     .logo{
         width: 10%;
     }
@@ -996,8 +1034,7 @@ a.w3_play_icon1:hover {
     color: #000;
     padding:.8em .8em ;
     border: none;
-    border-radius: 0;
-    border-bottom: 0.125rem solid #fe625b;
+    border-radius: 0.5rem;
     background: #eaeaea;
     outline: none; /*quito !important*/
     white-space: nowrap;
@@ -1302,7 +1339,12 @@ h5.modal-title {
     font-size: 0.8125rem;
     margin-top: 1.5625rem;
     padding: 0.5rem 1.25rem;
-}	
+}
+    .outs_more-buttn button {
+        font-size: 0.8125rem;
+        margin-top: 1.5625rem;
+        padding: 0.5rem 1.25rem;
+    }
 .white-left span,.ser-wthree-icon span {
     font-size: 2.5625rem;
 }
@@ -1703,6 +1745,10 @@ h5.modal-title {
     margin-top: 1.1875rem;
     padding: 0.5rem 10.5rem;
 }
+    .outs_more-buttn button {
+        margin-top: 1.1875rem;
+        padding: 0.5rem 10.5rem;
+    }
 .outs-about-buttn a {
     letter-spacing: 0.0625rem;
     margin-top: 1.125rem;
@@ -2088,6 +2134,9 @@ h5.modal-title {
 .outs_more-buttn a {
     letter-spacing: 0.0625rem;
 }
+    .outs_more-buttn button {
+        letter-spacing: 0.0625rem;
+    }
 .agile-abt-info h2, .ser-list-using-agile h4 {
     font-size: 1.3125rem;
 }

@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
 
     this.id = setInterval(() => {
       this.comprobarUser();
-    }, 500);
+    }, 100);
     if (this.valido) {
       clearInterval(this.id);
     }
@@ -39,15 +39,18 @@ export class NavbarComponent implements OnInit {
   }
 
   comprobarUser() {
-    if (this.auth.userProfile) {
-      this.profile = this.auth.userProfile;
-    } else {
-      this.auth.getProfile((err, profile) => {
-        this.profile = profile;
-      });
-    }
-    if (this.profile !== undefined) {
-      this.valido = true;
+    if (this.auth.isAuthenticated()){
+      if (this.auth.userProfile) {
+        this.profile = this.auth.userProfile;
+      } else {
+        this.auth.getProfile((err, profile) => {
+          this.profile = profile;
+        });
+      }
+      if (this.profile !== undefined) {
+        this.valido = true;
+      }
     }
   }
+
 }

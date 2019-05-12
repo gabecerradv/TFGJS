@@ -54,11 +54,11 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown" routerLinkActive="active">
                 <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Tu cuenta</a>
-                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Contrata un plan</a>
-                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Solicitar prueba gratuita</a>
+                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['purchase']">Contrata un plan</a>
+                <a *ngIf="!auth.isAuthenticated()" class="dropdown-item" [routerLink]="['free']">Solicitar prueba gratuita</a>
                 <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Seguimiento/Evolución</a>
                 <a class="dropdown-item" [routerLink]="['account']">Crea un plan de entrenamiento</a>
-                <button *ngIf="!auth.isAuthenticated()" class="dropdown-item">Registro</button>
+                <button *ngIf="!auth.isAuthenticated()" class="dropdown-item" [routerLink]="['register']">Registro</button>
                 <button *ngIf="auth.isAuthenticated()" (click)="logout()" class="dropdown-item">Salir</button>
               </div>
             </li>

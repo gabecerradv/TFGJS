@@ -14,9 +14,23 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  guardar( forma: NgForm ){
-    console.log(forma);
-    console.log(forma.value);
+  guardar( forma: NgForm ) {
+    let dni = forma.value.dni;
+    if (this.validate(dni)){
+      console.log(forma);
+      console.log(forma.value);
+    }
+  }
+
+  validate(value){
+
+    let validChars = 'TRWAGMYFPDXBNJZSQVHLCKET';
+    let str = value.toString().toUpperCase();
+    let letter = str.substr(-1);
+    let charIndex = parseInt(str.substr(0, 8)) % 23;
+    return validChars.charAt(charIndex) === letter;
+
 
   }
+
 }

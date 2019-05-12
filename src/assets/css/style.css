@@ -80,6 +80,10 @@ input[type="button"],input[type="submit"],textarea{
     border: 3px solid #47c19b !important;
 }
 
+.validation-invalid{
+    color: red !important;
+}
+
 .button_disabled{
     background-color: gray !important;
 }

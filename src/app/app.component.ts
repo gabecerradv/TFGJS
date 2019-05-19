@@ -1,6 +1,5 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import {visible} from "ansi-colors";
 
 @Component({
   selector: 'app-root',

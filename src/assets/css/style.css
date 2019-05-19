@@ -6,22 +6,21 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 /*---------------------------------- //Cookies----------------------- --*/
-#street-view {
-    height: 500px;
-}
 
 .grdp {
     position: fixed;
-    top: 120px;
-    left: 40px;
-    width: 65%;
+    top: 150px;
+    left: 15px;
+    width: 70%;
     z-index: 100000;
     border: 6px #dedddd solid;
     text-align: justify;
+    font-weight: bold;
 }
 
 .bcgrdp {
     cursor: pointer;
+    font-weight: bold;
 }
 
 /*---------------------------------- //Reset-Code----------------------- --*/

@@ -11,15 +11,16 @@ import { ContactComponent } from './components/contact/contact.component';
 import { NewsletterComponent } from './shared/newsletter/newsletter.component';
 import { SportsComponent } from './components/news/sports/sports.component';
 import { LastNewsComponent } from './components/news/last-news/last-news.component';
-import {LoginComponent} from './components/login/login.component';
-import {AuthService} from './core/services/auth.service';
+import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './core/services/auth.service';
 import { MapComponent } from './components/map/map.component';
 import { AccountComponent } from './components/account/account.component';
 import {AuthGuardService} from './core/services/auth-guard.service';
 import { RegisterComponent } from './components/register/register.component';
 import { PurchaseComponent } from './components/purchase/purchase.component';
 import { FreeDayComponent } from './components/free-day/free-day.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
+import { CookieService } from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import {FormsModule} from "@angular/forms";
     AppRoutingModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

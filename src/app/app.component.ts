@@ -17,18 +17,14 @@ import {visible} from "ansi-colors";
 
   ngOnInit(): void {
     this.cookieValue = this.cookieService.get('Cookie_PonteFit');
-    console.log(this.cookieService.get('Cookie_PonteFit'));
-    console.log(this.cookieValue);
     if (!this.cookieValue) {
       this.visible = true;
-      console.log("estaba vacia creamos cookie");
-      this.cookieService.set( 'Cookie_PonteFit', 'GDPR' );
     }
-    console.log("cookie encontrada");
   }
 
   onGRDP() {
     this.visible = !this.visible;
+    this.cookieService.set( 'Cookie_PonteFit', 'GDPR' );
   }
 
 }

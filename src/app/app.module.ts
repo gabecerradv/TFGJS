@@ -21,6 +21,8 @@ import { PurchaseComponent } from './components/purchase/purchase.component';
 import { FreeDayComponent } from './components/free-day/free-day.component';
 import { FormsModule } from "@angular/forms";
 import { CookieService } from "ngx-cookie-service";
+import { CopyrightComponent } from './shared/copyright/copyright.component';
+import { CookiesComponent } from './shared/cookies/cookies.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { CookieService } from "ngx-cookie-service";
     RegisterComponent,
     PurchaseComponent,
     FreeDayComponent,
+    CopyrightComponent,
+    CookiesComponent,
 
   ],
   imports: [

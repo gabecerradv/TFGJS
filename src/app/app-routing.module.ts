@@ -15,6 +15,7 @@ import {PurchaseComponent} from "./components/purchase/purchase.component";
 import {FreeDayComponent} from "./components/free-day/free-day.component";
 import {CopyrightComponent} from "./shared/copyright/copyright.component";
 import {CookiesComponent} from "./shared/cookies/cookies.component";
+import {EvolutionComponent} from "./components/evolution/evolution.component";
 
 
 const routes: Routes = [
@@ -62,6 +63,10 @@ const routes: Routes = [
   {
     path: 'cookies',
     component: CookiesComponent
+  },
+  {
+    path: 'seguimiento',
+    component: EvolutionComponent
   },
   {
     path: 'free',

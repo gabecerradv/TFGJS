@@ -23,6 +23,7 @@ import { FormsModule } from "@angular/forms";
 import { CookieService } from "ngx-cookie-service";
 import { CopyrightComponent } from './shared/copyright/copyright.component';
 import { CookiesComponent } from './shared/cookies/cookies.component';
+import { EvolutionComponent } from './components/evolution/evolution.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CookiesComponent } from './shared/cookies/cookies.component';
     FreeDayComponent,
     CopyrightComponent,
     CookiesComponent,
+    EvolutionComponent,
 
   ],
   imports: [

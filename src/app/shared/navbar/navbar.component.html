@@ -56,7 +56,7 @@
                 <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Tu cuenta</a>
                 <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['purchase']">Contrata un plan</a>
                 <a *ngIf="!auth.isAuthenticated()" class="dropdown-item" [routerLink]="['free']">Solicitar prueba gratuita</a>
-                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Seguimiento/Evolución</a>
+                <a *ngIf="!auth.isAuthenticated()" class="dropdown-item" [routerLink]="['progreso']">Progreso</a>
                 <a class="dropdown-item" [routerLink]="['account']">Crea un plan de entrenamiento</a>
                 <button *ngIf="!auth.isAuthenticated()" class="dropdown-item" [routerLink]="['register']">Registro</button>
                 <button *ngIf="auth.isAuthenticated()" (click)="logout()" class="dropdown-item">Salir</button>
@@ -71,4 +71,4 @@
       </nav>
     </div>
   </div>
-</header>
+ </header>

@@ -13,6 +13,9 @@ import {MapComponent} from './components/map/map.component';
 import {RegisterComponent} from "./components/register/register.component";
 import {PurchaseComponent} from "./components/purchase/purchase.component";
 import {FreeDayComponent} from "./components/free-day/free-day.component";
+import {CopyrightComponent} from "./shared/copyright/copyright.component";
+import {CookiesComponent} from "./shared/cookies/cookies.component";
+import {EvolutionComponent} from "./components/evolution/evolution.component";
 
 
 const routes: Routes = [
@@ -52,6 +55,18 @@ const routes: Routes = [
   {
     path: 'purchase',
     component: PurchaseComponent
+  },
+  {
+    path: 'copyright',
+    component: CopyrightComponent
+  },
+  {
+    path: 'cookies',
+    component: CookiesComponent
+  },
+  {
+    path: 'progreso',
+    component: EvolutionComponent
   },
   {
     path: 'free',

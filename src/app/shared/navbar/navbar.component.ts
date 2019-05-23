@@ -10,12 +10,14 @@ export class NavbarComponent implements OnInit {
   profile: any;
   id: any;
   valido: boolean;
+  google: boolean;
 
   constructor(public auth: AuthService) {
     auth.handleAuthentication();
   }
 
   ngOnInit() {
+    this.google = false;
     this.manejarComprobacion();
   }
 
@@ -39,7 +41,7 @@ export class NavbarComponent implements OnInit {
   }
 
   comprobarUser() {
-    if (this.auth.isAuthenticated()){
+    if (this.auth.isAuthenticated()) {
       if (this.auth.userProfile) {
         this.profile = this.auth.userProfile;
       } else {

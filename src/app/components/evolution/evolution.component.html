@@ -46,7 +46,7 @@
 <main>
     <!--service-->
     <section class="about-inner py-lg-4 py-md-3 py-sm-3 py-3">
-        <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <div *ngIf="(!facebook && !google)" class="container py-lg-5 py-md-4 py-sm-4 py-3">
             <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">TU PROGRESO</h3>
 
             <div class="row agile-service-grid pt-lg-4 pt-md-4 pt-3">
@@ -105,5 +105,14 @@
             </div>
 
         </div>
+      <div *ngIf="(google || facebook)">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">TU PROGRESO</h3>
+        <h2 class="text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Lo sentimos, has ingresado desde una fuente externa y este apartado es sólo para usuarios registrados a través de nuestra web </h2>
+        <div class="text-center">
+        <div class="text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">
+          <button class="btn btn-outline-primary" [routerLink]="['/register']">Regístrate</button>
+      </div>
+      </div>
+      </div>
     </section>
 </main>

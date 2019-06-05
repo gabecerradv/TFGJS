@@ -31,7 +31,7 @@ export class AccountComponent implements OnInit {
       });
     }
   }
-  
+
   comprobarFuente() {
     const cadenaf = this.profile.sub.substr(0,8);
     const cadenag = this.profile.sub.substr(0,6);

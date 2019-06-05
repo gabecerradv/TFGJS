@@ -22,7 +22,7 @@ export class PurchaseComponent implements OnInit {
     this.google = false;
     this.comprobarFuente();
   }
-  
+
   obtenerPerfil() {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;

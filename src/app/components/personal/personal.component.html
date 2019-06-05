@@ -48,13 +48,23 @@
   <section class="back py-lg-4 py-md-4 py-sm-3 py-3" id="back">
     <div class="container py-lg-5 py-md-5 py-sm-4 py-4">
       <div class="contenido">
-      <div class="jst-must-info text-center">
+      <div *ngIf="(!ganar && !perder)" class="jst-must-info text-center">
         <h1>BODY CHECK GRATUITO</h1>
-        <p>Rellena este cuestionario en 3 minutos para ver directamente nuestra recomendación.</p>
+        <p>Elije una opción para ver nuestra recomendación.</p>
         <h3>SELECCIONAR OBJETIVO</h3>
-        <button class="fas fa-arrow-up btn btn-outline-dark" type="button">GANAR MASA MUSCULAR</button>
-        <button class="fas fa-arrow-down btn btn-outline-dark" type="button">PÉRDIDA DE PESO</button>
+        <button (click)="mostrarGanar()" class="fas fa-arrow-up btn btn-outline-dark" type="button">GANAR MASA MUSCULAR</button>
+        <button (click)="mostrarPerder()" class="fas fa-arrow-down btn btn-outline-dark" type="button">PÉRDIDA DE PESO</button>
        </div>
+        <div *ngIf="perder" class="jst-must-info text-center">
+          <h1>BODY CHECK GRATUITO</h1>
+          <p>Has elejido perder peso.</p>
+
+        </div>
+        <div *ngIf="ganar" class="jst-must-info text-center">
+          <h1>BODY CHECK GRATUITO</h1>
+          <p>Has elejido ganar masa muscular.</p>
+
+        </div>
       </div>
     </div>
   </section>

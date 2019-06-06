@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-evolution',
@@ -43,6 +44,12 @@ export class EvolutionComponent implements OnInit {
       this.google = true;
       console.log('the has logado con google');
     }
+  }
+
+  guardar( forma: NgForm ){
+    console.log(forma);
+    console.log(forma.value);
+
   }
 
 }

@@ -28,7 +28,7 @@
         ames pero, es el hábito más valioso que puedes tener en tu vida.</p>
       <div class="outs_more-buttn">
         <a *ngIf="!auth.isAuthenticated()" [routerLink]="['/register']">Regístrate</a>
-        <button *ngIf="!auth.isAuthenticated()" (click)="login()">Ingresa</button>
+        <button *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']">Ingresa</button>
         <a *ngIf="auth.isAuthenticated()" [routerLink]="['/purchase']">Contrata un plan</a>
       </div>
     </div>

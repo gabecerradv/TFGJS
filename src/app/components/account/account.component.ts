@@ -17,18 +17,18 @@ export class AccountComponent implements OnInit {
       this.obtenerPerfil();
       this.facebook = false;
       this.google = false;
-      this.comprobarFuente();
+      if (this.profile) {
+        this.comprobarFuente();
+      }
   }
 
   obtenerPerfil() {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
-      console.log(this.profile);
-    } else {
+          } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
-        console.log(this.profile);
-      });
+              });
     }
   }
 

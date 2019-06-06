@@ -10,7 +10,7 @@
         <form class="form-inline my-2 my-lg-0 navbar-light">
           <h4><a class="navbar-brand user" *ngIf="valido">Hola, {{profile.given_name}} </a></h4>
           <h4><a class="navbar-brand user" *ngIf="!valido">Hola, identifícate</a></h4>
-          <button (click)="login()"
+          <button [routerLink]="['/login']"
                   *ngIf="!auth.isAuthenticated()"
                   class="fas fa-user btn btn-outline-light"  type="button" > Ingresar</button>
           <button (click)="logout()"

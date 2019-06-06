@@ -11,6 +11,7 @@ export class EvolutionComponent implements OnInit {
   profile: any;
   facebook: boolean;
   google: boolean;
+  fuente: string;
 
   constructor(public auth: AuthService) { }
 
@@ -18,17 +19,17 @@ export class EvolutionComponent implements OnInit {
     this.obtenerPerfil();
     this.facebook = false;
     this.google = false;
-    this.comprobarFuente();
+    if (this.profile) {
+      this.comprobarFuente();
+    }
   }
 
   obtenerPerfil() {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
-      console.log(this.profile);
-    } else {
+      } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
-        console.log(this.profile);
       });
     }
   }
@@ -38,11 +39,11 @@ export class EvolutionComponent implements OnInit {
     const cadenag = this.profile.sub.substr(0,6);
     if (cadenaf == 'facebook') {
       this.facebook = true;
-      console.log('the has logado con fb');
+      this.fuente = 'Facebook';
     }
     if (cadenag == 'google') {
       this.google = true;
-      console.log('the has logado con google');
+      this.fuente = 'Google';
     }
   }
 

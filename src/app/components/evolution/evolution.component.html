@@ -68,10 +68,10 @@
                                      name="peso"
                                      title="peso"
                                      #peso="ngModel">
-                              <div *ngIf="peso.errors?.required && peso.dirty">
+                              <div *ngIf="peso.errors?.required && peso.dirty" class="alert-danger">
                                 Este campo es obligatorio
                               </div>
-                              <div *ngIf="peso.errors?.pattern">
+                              <div *ngIf="peso.errors?.pattern" class="alert-danger">
                                 Debe introducir un peso válido
                               </div>
                             </div>
@@ -114,7 +114,7 @@
         </div>
       <div *ngIf="(google || facebook)">
         <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">TU PROGRESO</h3>
-        <h2 class="text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Lo sentimos, has ingresado desde una fuente externa y este apartado es sólo para usuarios registrados a través de nuestra web </h2>
+        <h2 class="text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Lo sentimos, has ingresado desde {{ fuente }} y este apartado es sólo para usuarios registrados a través de nuestra web </h2>
         <div class="text-center">
         <div class="text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">
           <button class="btn btn-outline-primary" [routerLink]="['/register']">Regístrate</button>

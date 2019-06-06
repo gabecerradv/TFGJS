@@ -84,10 +84,10 @@
                          required="required"
                          title="ej: Iván"
                          #nombre="ngModel">
-                  <div *ngIf="nombre.errors?.required && nombre.dirty">
+                  <div *ngIf="nombre.errors?.required && nombre.dirty" class="alert-danger">
                     Este campo es obligatorio
                   </div>
-                  <div *ngIf="nombre.errors?.pattern">
+                  <div *ngIf="nombre.errors?.pattern" class="alert-danger">
                     Este campo sólo puede contener letras (2 mínimo)
                   </div>
                 </div>
@@ -105,10 +105,10 @@
                          title="ejemplo@hotmail.com"
                          required="required"
                          #email="ngModel">
-                  <div *ngIf="email.errors?.required && email.dirty">
+                  <div *ngIf="email.errors?.required && email.dirty" class="alert-danger">
                     Este campo es obligatorio
                   </div>
-                  <div *ngIf="email.errors?.pattern">
+                  <div *ngIf="email.errors?.pattern" class="alert-danger">
                     Este campo debe ser un correo electrónico válido
                   </div>
                 </div>
@@ -125,10 +125,10 @@
                          name="tel"
                          title="tel"
                          #tel="ngModel">
-                  <div *ngIf="tel.errors?.required && tel.dirty">
+                  <div *ngIf="tel.errors?.required && tel.dirty" class="alert-danger">
                     Este campo es obligatorio
                   </div>
-                  <div *ngIf="tel.errors?.pattern">
+                  <div *ngIf="tel.errors?.pattern" class="alert-danger">
                     Debe introducir un teléfono válido
                   </div>
                   </div>

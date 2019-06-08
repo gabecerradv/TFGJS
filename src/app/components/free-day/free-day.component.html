@@ -134,6 +134,31 @@
                   </div>
               </div>
               <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
+                <label class="col-lg-3 col-md-3 form-group contact-forms">*DNI:</label>
+                <div class="col-lg-8 col-md-8 form-group contact-forms">
+                  <input type="text" class="form-control"
+                         placeholder="*DNI"
+                         id="DNI"
+                         ngModel
+                         pattern="^[0-9]{8}[a-zA-Z]{1}$"
+                         required
+                         name="dni"
+                         title="DNI"
+                         #DNI="ngModel"
+                         (ngModelChange)="validateDni(DNI)"
+                         [ngClass]=" { 'validation-invalid': alertDni }">
+                  <div [ngClass]=" { 'validation-invalid': DNI.errors?.required && DNI.dirty }" *ngIf="DNI.errors?.required && DNI.dirty" class="alert-danger">
+                    Este campo es obligatorio
+                  </div>
+                  <div [ngClass]=" { 'validation-invalid': DNI.errors?.pattern }" *ngIf="DNI.errors?.pattern" class="alert-danger">
+                    Debe introducir un dni válido
+                  </div>
+                  <div [ngClass]=" { 'validation-invalid': alertDni }" *ngIf="alertDni && DNI.dirty" class="alert-danger">
+                    Debe introducir una letra válida
+                  </div>
+                </div>
+              </div>
+              <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Fecha:</label>
                 <div class="col-lg-8 col-md-8 form-group contact-forms">
                   <input type="date" class="form-control" id="inicio"

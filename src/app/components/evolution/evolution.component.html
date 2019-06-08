@@ -102,13 +102,25 @@
                 </div>
 
                 <div class="col-lg-6 col-md-12 col-sm-12 w3layouts-service-list text-center gap-1">
-
-                    <div class="white-shadow">
-                        <div class="ser-inner-info">
-                            <h4>Últimos movimientos</h4>
-                            <p>Aún no hay registros guardados.</p>
+                  <div class="white-shadow">
+                    <div class="ser-inner-info">
+                      <h4>Últimos movimientos</h4>
+                      <div class="list-of-evolution">
+                      <div *ngIf="(!datos)" class="no-data">
+                        <p>No hay registros guardados</p>
+                      </div>
+                      </div>
+                        <div *ngIf="datos.length" >
+                          <div *ngFor="let datos of datos" class="results">
+                            <span>Día {{datos.dia}}</span>
+                            <span>Peso {{datos.peso}}</span>
+                          </div>
                         </div>
+
                     </div>
+                  </div>
+
+
                 </div>
             </div>
         </div>

@@ -678,6 +678,14 @@ background:#fe625b;
     }
 }
 
+.results{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
 /*Fin publicidiad*/
 /*-----------------------------------------------------------------state-----------------------------*/
 .state,.abt-inner-agile {background: url(../images/ss1.jpg)no-repeat center;

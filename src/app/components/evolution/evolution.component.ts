@@ -12,6 +12,7 @@ export class EvolutionComponent implements OnInit {
   facebook: boolean;
   google: boolean;
   fuente: string;
+  datos: any[];
 
   constructor(public auth: AuthService) { }
 
@@ -22,6 +23,17 @@ export class EvolutionComponent implements OnInit {
     if (this.profile) {
       this.comprobarFuente();
     }
+    // this.datos = [
+    //   {
+    //     dia: '19/07/19',
+    //     peso: 115
+    //   },
+    //   {
+    //     dia: '29/07/19',
+    //     peso: 110
+    //   }
+    // ];
+  console.log(this.datos.length);
   }
 
   obtenerPerfil() {

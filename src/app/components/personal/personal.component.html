@@ -45,27 +45,101 @@
 <!-- //short-->
 <main>
   <!--service-->
-  <section class="back py-lg-4 py-md-4 py-sm-3 py-3" id="back">
+  <section *ngIf="(!ganar && !perder)" class="back py-lg-4 py-md-4 py-sm-3 py-3" id="back">
     <div class="container py-lg-5 py-md-5 py-sm-4 py-4">
       <div class="contenido">
       <div *ngIf="(!ganar && !perder)" class="jst-must-info text-center">
         <h1>BODY CHECK GRATUITO</h1>
         <p>Elije una opción para ver nuestra recomendación.</p>
         <h3>SELECCIONAR OBJETIVO</h3>
-        <button (click)="mostrarGanar()" class="fas fa-arrow-up btn btn-outline-dark" type="button">GANAR MASA MUSCULAR</button>
-        <button (click)="mostrarPerder()" class="fas fa-arrow-down btn btn-outline-dark" type="button">PÉRDIDA DE PESO</button>
-       </div>
-        <div *ngIf="perder" class="jst-must-info text-center">
-          <h1>BODY CHECK GRATUITO</h1>
-          <p>Has elejido perder peso.</p>
-
-        </div>
-        <div *ngIf="ganar" class="jst-must-info text-center">
-          <h1>BODY CHECK GRATUITO</h1>
-          <p>Has elejido ganar masa muscular.</p>
-
-        </div>
+        <button (click)="mostrarGanar()" class="fas fa-arrow-up btn btn-outline-dark" style="margin-bottom: 20px; margin-top: 15px; margin-right: 10px" type="button">GANAR MASA MUSCULAR</button>
+        <button (click)="mostrarPerder()" class="fas fa-arrow-down btn btn-outline-dark" style="margin-bottom: 20px; margin-top: 15px" type="button">PÉRDIDA DE PESO</button>
       </div>
+       </div>
     </div>
+  </section>
+
+  <section>
+    <div class="container py-lg-5 py-md-5 py-sm-4 py-4" *ngIf="perder">
+      <h4>La motivación es importante</h4>
+      <p>Lo primero y más importante para conseguir adelgazar en el gimnasio es no perder la motivación. Muchas personas cuando comienzan a hacer una rutina de entrenamiento suelen esperar resultados visibles desde las primeras semanas y eso es muy difícil porque todo depende del estilo de vida que hayas llevado hasta ahora y de las prácticas alimentarias que lleves en tu día a día.</p>
+
+      <p>Así pues, es importante que sepas que los efectos visibles del deporte empiezan a observarse a partir de los tres meses, siempre y cuando seas constante y apuestes por unos hábitos saludables. En este artículo de unComo te damos una serie de consejos para que puedas estar motivado para hacer ejercicio.</p>
+
+
+
+      <h4>Cuántas veces ir al gimnasio para adelgazar</h4>
+  Además no podrás adelgazar si vas al gym de manera intermitente y no eres constante con tu entrenamiento. Ten en cuenta que para poder ver los resultados del ejercicio, como mínimo, debes acudir 3 días a la semana; si solo vas dos o un día ten en cuenta que tu cuerpo apenas notará el deporte y no servirá de mucho. Por lo tanto, márcate un horario fijo para ir 3 días a la semana y conseguir, así, perder los kilos que te sobran.
+
+  Mínimo son 3 días pero máximo son 5, piensa que nuestro cuerpo necesita descansar para poder regenerarse y conseguir, así, que los músculos se vuelvan más fuertes. Es contraproducente ir los 7 días de la semana al gimnasio porque no permites que tu cuerpo asimile el ejercicio y podrías padecer sobrentrenamiento. En este artículo te contamos de forma detallada la frecuencia para ir al gimnasio.
+
+
+
+      <h4>Una buena rutina para adelgazar en el gimnasio</h4>
+  Otro truco para conseguir adelgazar en el gimnasio es que comiences tu entreno con los ejercicios de fuerza y termines con el aeróbico. Sí, sabemos que desde siempre se ha defendido el orden contrario pero lo cierto es que para aprovechar al máximo la quema de grasas que se consigue con los ejercicios cardiovasculares, tenemos que empezar por la fuerza. Te contamos el por qué:
+
+  En el cuerpo se almacena glucosa (azúcar) que procede de los alimentos que tomamos. Estas reservas se encuentran en los músculos y en el hígado, por lo tanto, si comenzamos el entreno ejercitando los músculos conseguimos que se consuman estas reservas y, por lo tanto, que se aproveche la energía.
+
+  Después, terminaremos con el ejercicio aeróbico con el que conseguiremos, no aprovechar la energía de la glucosa sino incidir directamente en las reservas de grasa que tenemos almacenada. Por lo tanto, aprovechamos mucho más el ejercicio y conseguimos quemar más grasas.
+
+
+      <h4> Ejemplo de una rutina en el gimnasio</h4>
+  Por lo tanto, y siguiendo con lo que acabamos de contarte en el punto anterior, una buena rutina de entrenamiento se dividiría en estas etapas:
+
+  Comenzamos con 5 minutos de estiramientos corporales
+  Continuamos con una sesión de ejercicios de fuerza y musculación
+  A continuación haremos las actividades cardiovasculares
+  Terminamos con el estiramiento para evitar lesiones
+  Cómo adelgazar en el gimnasio - Una buena rutina para adelgazar en el gimnasio
+
+      <h4>La tonificación es importante</h4>
+  Un error también que hay en la concepción de hacer deporte para adelgazar es que muchas veces se cree que con solo hacer ejercicio aeróbico ya se consigue perder peso. Como ya hemos dicho, eso es un error puesto que la mejor combinación que se puede hacer es la que mezcla el cardio con la fuerza. El motivo es sencillo: cuando ganas masa muscular consigues acelerar el metabolismo ya que cuanto más músculo tienes, más calorías se consumen diariamente.
+
+      <h4>  Combina diferentes intensidades para bajar de peso</h4>
+  Para aprovechar el máximo el rato que estemos en el gimnasio, hay otro truco que vale la pena conocer y es que cuando hagas ejercicios cardiovasculares combina diferentes intensidades. Piensa que el cuerpo se acostumbra muy rápido y si habitualmente haces 30 minutos de bicicleta estática con la misma fuerza, al final, apenas quemarás calorías.
+
+  Lo mejor es que combines momentos más tranquilos con otros más intensos para lograr que tu cuerpo esté activo todo el rato y no se acostumbre a esta rutina. Es por este motivo por el que en las clases de spinning se hacen tantos sprints: porque el secreto para perder peso está en combina intensidades.
+
+
+      <h4> Coge más peso de forma progresiva</h4>
+  Siguiendo con lo que acabamos de comentarte, tienes que saber que ocurre lo mismo con los ejercicios de musculación, es decir, tu cuerpo se acostumbra al peso y, al final, deja de necesitar tanta energía para hacer ese movimiento. Por lo tanto es importante que vayas observando cómo reacciona tu cuerpo ante el peso y, cuando sientas que ya no te cuesta esfuerzo, aumentes la cantidad que levantas.
+
+  De esta manera, tu cuerpo no estará acostumbrado y conseguirás que esté siempre trabajando. En este artículo podrás entender de forma específica cada cuánto se recomienda cambiar de peso en el gimnasio.
+
+    </div>
+    <div class="container py-lg-5 py-md-5 py-sm-4 py-4" *ngIf="ganar">
+      <h4>Rutina para ganar masa muscular en el gimnasio</h4>
+      Ganar masa muscular es un proceso que requiere tiempo, dedicación y un buen entrenamiento. Atento a estos ejercicios pensados para poner en marcha en el gimnasio.
+
+
+      Lo más importante es tener en cuenta los tres principales mecanismos para ganar masa muscular: tensión muscular, estrés metabólico y daño muscular.
+
+      Muchas veces creemos que estos tres factores van directamente relacionados con la cantidad de peso que mueves en cada serie. Pero no, simplemente podemos comparar y ver la diferencia entre un powerlifter y un culturista.
+
+      Los powerlifter, normalmente, tienen más fuerza y por lo tanto pueden levantar mucho más peso que un culturista, pero el culturista es el que tiene más masa muscular. Este ejemplo es para que te des cuenta que deberías centrarte en cómo levantas el peso, y no en el cuánto.
+
+      Y no olvidarte de las piernas, que como explicamos aquí, su entrenamiento también es necesario.
+
+      <h4>Ganar masa muscular mediante la tensión</h4>
+      Aprender cómo crear tensión muscular va a marcar la diferencia en tu capacidad de hipertrofia muscular. Si tú estás intentando levantar la máxima cantidad de peso posible , no estarás consiguiendo la máxima capacidad de crecimiento muscular.
+
+      Porque cuando intentas levantar un peso con todos los músculos, es posible que tu técnica no sea la correcta. Los ligamentos y articulaciones se llevan una parte de la carga y aunque parezca que estas ejercitando el músculo, seguramente no estará moviendo la suficiente carga necesaria para aumentar.
+
+      Para evitarlo, también es recomendable recurrir a las máquinas especializadas del gimnasio, que te guiarán durante todo el movimiento. Algunas como las que ofrece Precor aportan, además, muchas comodidades para que terminar con éxito el ejercicio sea más sencillo.
+
+      Así que hazlo diferente, en vez de intentar mover la máxima carga posible, céntrate en realizar el máximo recorrido que te permita cada movimiento. Que se cree tensión en el musculo. Tu trabajo es asegurarte que en cada repetición el músculo no tome descanso.
+
+      Es un proceso constante de estirar completamente el músculo (fase excéntrica) y apretarlo en la fase concéntrica. Si  realizamos una tensión muscular correcta, experimentaremos  el estrés metabólico. Esa sensación tan maravillosa de quemazón y congestión en el musculo.
+
+      Se produce una disminución del oxígeno que va hacia el músculo, tanto como lactato junto con la sangre. Este proceso acabara activando las células que realizan el crecimiento muscular, hinchándolas y acumulando más agua en él.
+
+      ¿Sabes si es normal tener agujetas después de los entrenamientos?
+
+      <h4>El daño muscular</h4>
+      Y para hablar del daño muscular. Un proceso de rotura de fibras que hace que el músculo se recupere. Para conseguir siempre ese daño debemos asegurarnos que no nos adaptamos al ejercicio. Para ello es bueno ir variando nuestra forma de entrenamiento.
+
+      Aumentar el peso gradualmente, ejecutar ejercicios nuevos o cambiar los ángulos de ejecución de los que ya realizamos habitualmente. A continuación dejaré cuatro ejercicios esenciales en una rutina de ganar masa muscular por su carga anabólica. Centraros en la técnica, la ejecución y el tiempo bajo tensión muscular.
+
+     </div>
   </section>
 </main>

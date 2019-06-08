@@ -84,10 +84,10 @@
                          required="required"
                          title="ej: Iván"
                          #nombre="ngModel">
-                  <div *ngIf="nombre.errors?.required && nombre.dirty">
+                  <div *ngIf="nombre.errors?.required && nombre.dirty" class="alert-danger">
                     Este campo es obligatorio
                   </div>
-                  <div *ngIf="nombre.errors?.pattern">
+                  <div *ngIf="nombre.errors?.pattern" class="alert-danger">
                     Este campo sólo puede contener letras (2 mínimo)
                   </div>
                 </div>
@@ -105,10 +105,10 @@
                          title="ejemplo@hotmail.com"
                          required="required"
                          #email="ngModel">
-                  <div *ngIf="email.errors?.required && email.dirty">
+                  <div *ngIf="email.errors?.required && email.dirty" class="alert-danger">
                     Este campo es obligatorio
                   </div>
-                  <div *ngIf="email.errors?.pattern">
+                  <div *ngIf="email.errors?.pattern" class="alert-danger">
                     Este campo debe ser un correo electrónico válido
                   </div>
                 </div>
@@ -125,13 +125,38 @@
                          name="tel"
                          title="tel"
                          #tel="ngModel">
-                  <div *ngIf="tel.errors?.required && tel.dirty">
+                  <div *ngIf="tel.errors?.required && tel.dirty" class="alert-danger">
                     Este campo es obligatorio
                   </div>
-                  <div *ngIf="tel.errors?.pattern">
+                  <div *ngIf="tel.errors?.pattern" class="alert-danger">
                     Debe introducir un teléfono válido
                   </div>
                   </div>
+              </div>
+              <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
+                <label class="col-lg-3 col-md-3 form-group contact-forms">*DNI:</label>
+                <div class="col-lg-8 col-md-8 form-group contact-forms">
+                  <input type="text" class="form-control"
+                         placeholder="*DNI"
+                         id="DNI"
+                         ngModel
+                         pattern="^[0-9]{8}[a-zA-Z]{1}$"
+                         required
+                         name="dni"
+                         title="DNI"
+                         #DNI="ngModel"
+                         (ngModelChange)="validateDni(DNI)"
+                         [ngClass]=" { 'validation-invalid': alertDni }">
+                  <div [ngClass]=" { 'validation-invalid': DNI.errors?.required && DNI.dirty }" *ngIf="DNI.errors?.required && DNI.dirty" class="alert-danger">
+                    Este campo es obligatorio
+                  </div>
+                  <div [ngClass]=" { 'validation-invalid': DNI.errors?.pattern }" *ngIf="DNI.errors?.pattern" class="alert-danger">
+                    Debe introducir un dni válido
+                  </div>
+                  <div [ngClass]=" { 'validation-invalid': alertDni }" *ngIf="alertDni && DNI.dirty" class="alert-danger">
+                    Debe introducir una letra válida
+                  </div>
+                </div>
               </div>
               <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Fecha:</label>

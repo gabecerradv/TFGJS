@@ -24,6 +24,8 @@ import { CookieService } from "ngx-cookie-service";
 import { CopyrightComponent } from './shared/copyright/copyright.component';
 import { CookiesComponent } from './shared/cookies/cookies.component';
 import { EvolutionComponent } from './components/evolution/evolution.component';
+import { PersonalComponent } from './components/personal/personal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,11 +48,13 @@ import { EvolutionComponent } from './components/evolution/evolution.component';
     CopyrightComponent,
     CookiesComponent,
     EvolutionComponent,
+    PersonalComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [AuthService, AuthGuardService, CookieService],

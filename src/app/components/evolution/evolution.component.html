@@ -46,64 +46,92 @@
 <main>
     <!--service-->
     <section class="about-inner py-lg-4 py-md-3 py-sm-3 py-3">
-        <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <div *ngIf="(!facebook && !google)" class="container py-lg-5 py-md-4 py-sm-4 py-3">
             <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">TU PROGRESO</h3>
 
             <div class="row agile-service-grid pt-lg-4 pt-md-4 pt-3">
 
                 <div class="col-lg-6 col-md-12 col-sm-12 w3layouts-service-list text-center">
+                  <form (ngSubmit)="guardar(forma)" #forma="ngForm">
                     <div class="white-shadow">
                         <div class="ser-inner-info">
-                            <h4>Fecha</h4>
-                            <h4>Introduce tu peso</h4>
+                          <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
+                            <label class="col-lg-3 col-md-3 form-group contact-forms">Peso:</label>
+                            <div class="col-lg-8 col-md-8 form-group contact-forms">
+                              <input type="number" class="form-control"
+                                     placeholder="Peso en kg"
+                                     min="20"
+                                     id="tel"
+                                     ngModel
+                                     pattern="^\d{2,3}(\.\d{1,2})?$"
+                                     required
+                                     name="peso"
+                                     title="peso"
+                                     #peso="ngModel">
+                              <div *ngIf="peso.errors?.required && peso.dirty" class="alert-danger">
+                                Este campo es obligatorio
+                              </div>
+                              <div *ngIf="peso.errors?.pattern" class="alert-danger">
+                                Debe introducir un peso válido
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
+                            <label class="col-lg-3 col-md-3 form-group contact-forms">Fecha:</label>
+                            <div class="col-lg-8 col-md-8 form-group contact-forms">
+                              <input type="date" class="form-control" id="inicio"
+                                     name="fecha"
+                                     ngModel
+                                     #fecha="ngModel"
+                                     required="required"
+                                     min="2019-06-17">
+                            </div>
+                          </div>
+
                         </div>
-                        <div class="text-wls-ser-bake">
-                            <button class="btn sent-butnn btn-lg">Guardar</button>
-                        </div>
+                      <div class="col-lg-12 col-md-12 form-group contact-forms">
+                        <button type="submit" id="envio"
+                                class="btn sent-butnn btn-lg"
+                                [ngClass]="{'button_disabled': forma.invalid}"
+                                [disabled] = "forma.invalid">
+                          Guardar
+                        </button>
+                      </div>
                     </div>
+                  </form>
                 </div>
 
                 <div class="col-lg-6 col-md-12 col-sm-12 w3layouts-service-list text-center gap-1">
+                  <div class="white-shadow">
+                    <div class="ser-inner-info">
+                      <h4>Últimos movimientos</h4>
+                      <div class="list-of-evolution">
+                      <div *ngIf="(!datos)" class="no-data">
+                        <p>No hay registros guardados</p>
+                      </div>
+                      </div>
+                        <div *ngIf="datos.length" >
+                          <div *ngFor="let datos of datos" class="results">
+                            <span>Día {{datos.dia}}</span>
+                            <span>Peso {{datos.peso}}</span>
+                          </div>
+                        </div>
 
-                    <div class="white-shadow">
-                        <div class="text-wls-ser-bake">
-                            <span class="fab fa-superpowers banner-icon"></span>
-                        </div>
-                        <div class="ser-inner-info">
-                            <h4>Define tu cuerpo</h4>
-                            <p>Haz lo que puedas con todo lo que tienes, donde sea que estés.</p>
-                        </div>
                     </div>
+                  </div>
+
+
                 </div>
             </div>
-
-            <div class="row agile-service-grid pt-lg-4 pt-md-4 pt-3">
-
-                <div class="col-lg-6 col-md-12 col-sm-12 w3layouts-service-list text-center">
-                    <div class="white-shadow">
-                        <div class="text-wls-ser-bake">
-                            <span class="fas fa-bullhorn banner-icon"></span>
-                        </div>
-                        <div class="ser-inner-info">
-                            <h4>Motivacion 24 horas</h4>
-                            <p>Haz lo que puedas con todo lo que tienes, donde sea que estés.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-12 col-sm-12 w3layouts-service-list text-center gap-2">
-                    <div class="white-shadow">
-                        <div class="text-wls-ser-bake">
-                            <span class="fab fa-superpowers banner-icon"></span>
-                        </div>
-                        <div class="ser-inner-info">
-                            <h4>Define tu cuerpo</h4>
-                            <p>Haz lo que puedas con todo lo que tienes, donde sea que estés.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
+      <div *ngIf="(google || facebook)">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">TU PROGRESO</h3>
+        <h2 class="text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Lo sentimos, has ingresado desde {{ fuente }} y este apartado es sólo para usuarios registrados a través de nuestra web </h2>
+        <div class="text-center">
+        <div class="text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">
+          <button class="btn btn-outline-primary" [routerLink]="['/register']">Regístrate</button>
+      </div>
+      </div>
+      </div>
     </section>
 </main>

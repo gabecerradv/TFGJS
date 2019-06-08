@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import * as auth0 from 'auth0-js';
 
 @Injectable()
 export class AuthService {
+  private isUserLoggedIn;
+  public usserLogged;
 
   private _idToken: string;
   private _accessToken: string;
@@ -18,10 +22,54 @@ export class AuthService {
     scope: 'openid profile'
   });
 
-  constructor(public router: Router) {
+  constructor(
+    public router: Router,
+    private http: HttpClient
+  ) {
     this._idToken = '';
     this._accessToken = '';
     this._expiresAt = 0;
+    this.isUserLoggedIn = false;
+  }
+
+  setUserLoggedIn(user) {
+    this.isUserLoggedIn = true;
+    this.usserLogged = user;
+    localStorage.setItem('currentUser', JSON.stringify(user));
+
+  }
+
+  getUserLoggedIn() {
+    return JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+
+  userLogin(usuario: string, contrasena: string) {
+    return this.http.post('https://reqres.in/api/login', {
+      email: usuario,
+      password: contrasena,
+    });
+  }
+
+  userRegister() {
+    return this.http.post('https://reqres.in/api/login', {
+
+    });
+  }
+
+  userPurchase(tipoPlan: string, duracionContrato: number, fechaInicio: string, formaPago: number) {
+    return this.http.post('https://reqres.in/api/login', {
+      tipo: tipoPlan,
+      duracion: duracionContrato,
+      fecha: fechaInicio,
+      pago: formaPago,
+    });
+  }
+
+  userProgress() {
+    return this.http.post('https://reqres.in/api/login', {
+
+    });
   }
 
   get accessToken(): string {

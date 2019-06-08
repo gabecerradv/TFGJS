@@ -678,6 +678,14 @@ background:#fe625b;
     }
 }
 
+.results{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
 /*Fin publicidiad*/
 /*-----------------------------------------------------------------state-----------------------------*/
 .state,.abt-inner-agile {background: url(../images/ss1.jpg)no-repeat center;
@@ -688,9 +696,25 @@ background:#fe625b;
     -ms-background-size: cover;
     min-height: 18.75rem;
 }
+.back,.abt-inner-agile {background: url(../images/training-828726_1920.jpg)no-repeat center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  min-height: 48.75rem;
+}
 .jst-must-info {
-    background: rgba(255, 255, 255, 0.4);
-    border:0.25rem solid rgb(71, 193, 155)
+    background: #ffffff;
+    border:0.25rem solid rgb(71, 193, 155);
+    width: 80%;
+}
+.jst-must-info p{
+  font-size: 1.5rem;
+}
+.contenido{
+  display: flex !important;
+  justify-content: center!important;
 }
 .counter {
     font-size: 1.5625rem;

@@ -84,10 +84,10 @@
                                            required="required"
                                            title="ej: Iván"
                                            #nombre="ngModel">
-                                    <div *ngIf="nombre.errors?.required && nombre.dirty">
+                                    <div *ngIf="nombre.errors?.required && nombre.dirty" class="alert-danger">
                                         Este campo es obligatorio
                                     </div>
-                                    <div *ngIf="nombre.errors?.pattern">
+                                    <div *ngIf="nombre.errors?.pattern" class="alert-danger">
                                         Este campo sólo puede contener letras (2 mínimo)
                                     </div>
                                 </div>
@@ -104,10 +104,10 @@
                                            pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{2,}$"
                                            title="ej: Pérez"
                                            #apellido="ngModel">
-                                    <div *ngIf="apellido.errors?.required && apellido.dirty">
+                                    <div *ngIf="apellido.errors?.required && apellido.dirty" class="alert-danger">
                                         Este campo es obligatorio
                                     </div>
-                                    <div *ngIf="apellido.errors?.pattern">
+                                    <div *ngIf="apellido.errors?.pattern" class="alert-danger">
                                         Este campo sólo puede contener letras (2 mínimo)
                                     </div>
                                 </div>
@@ -124,10 +124,10 @@
                                            required="required"
                                            title="ej: García"
                                            #apellido2="ngModel">
-                                    <div *ngIf="apellido2.errors?.required && apellido2.dirty">
+                                    <div *ngIf="apellido2.errors?.required && apellido2.dirty" class="alert-danger">
                                         Este campo es obligatorio
                                     </div>
-                                    <div *ngIf="apellido2.errors?.pattern">
+                                    <div *ngIf="apellido2.errors?.pattern" class="alert-danger">
                                         Este campo sólo puede contener letras (2 mínimo)
                                     </div>
                                 </div>
@@ -145,10 +145,10 @@
                                            title="ejemplo@hotmail.com"
                                            required="required"
                                            #email="ngModel">
-                                    <div *ngIf="email.errors?.required && email.dirty">
+                                    <div *ngIf="email.errors?.required && email.dirty" class="alert-danger">
                                         Este campo es obligatorio
                                     </div>
-                                    <div *ngIf="email.errors?.pattern">
+                                    <div *ngIf="email.errors?.pattern" class="alert-danger">
                                         Este campo debe ser un correo electrónico válido
                                     </div>
                                 </div>
@@ -164,10 +164,10 @@
                                            required="required"
                                            title="ej: García"
                                            #nick="ngModel">
-                                    <div *ngIf="nick.errors?.required && nick.dirty">
+                                    <div *ngIf="nick.errors?.required && nick.dirty" class="alert-danger">
                                         Este campo es obligatorio
                                     </div>
-                                    <div *ngIf="nick.errors?.pattern">
+                                    <div *ngIf="nick.errors?.pattern" class="alert-danger">
                                         La longitud del del nick debe estar entre 4 y 15 caracteres y estar formada por numeros y letras
                                     </div>
                                 </div>
@@ -210,10 +210,10 @@
                                            #Password1="ngModel"
                                            (ngModelChange)="validatePaswords(forma)"
                                            required>
-                                    <div *ngIf="Password1.errors?.required && Password1.dirty">
+                                    <div *ngIf="Password1.errors?.required && Password1.dirty" class="alert-danger">
                                         Este campo es obligatorio
                                     </div>
-                                    <div *ngIf="Password1.errors?.pattern">
+                                    <div *ngIf="Password1.errors?.pattern" class="alert-danger">
                                         La longitud de la contraseña debe tener minimo 8 caracteres y estar formada por numeros y letras
                                     </div>
                                 </div>

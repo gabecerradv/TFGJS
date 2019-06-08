@@ -8,18 +8,38 @@ import { AuthService } from '../../core/services/auth.service';
 })
 export class AccountComponent implements OnInit {
   profile: any;
+  facebook: boolean;
+  google: boolean;
 
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
+      this.obtenerPerfil();
+      this.facebook = false;
+      this.google = false;
+      if (this.profile) {
+        this.comprobarFuente();
+      }
+  }
+
+  obtenerPerfil() {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
-      console.log(this.profile);
-    } else {
+          } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
-        console.log(this.profile);
-      });
+              });
+    }
+  }
+
+  comprobarFuente() {
+    const cadenaf = this.profile.sub.substr(0,8);
+    const cadenag = this.profile.sub.substr(0,6);
+    if (cadenaf == 'facebook') {
+      this.facebook = true;
+    }
+    if (cadenag == 'google') {
+      this.google = true;
     }
   }
 }

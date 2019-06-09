@@ -6,8 +6,8 @@ import * as auth0 from 'auth0-js';
 
 @Injectable()
 export class AuthService {
-  private isUserLoggedIn;
-  public usserLogged;
+  private isUserLoggedIn: boolean;
+  public usserLogged: any;
 
   private _idToken: string;
   private _accessToken: string;
@@ -51,9 +51,15 @@ export class AuthService {
     });
   }
 
-  userRegister() {
+  userRegister(nombre, apellido, apellido2, userEmail, userNick, userDni, contrasena) {
     return this.http.post('https://reqres.in/api/login', {
-
+        name: nombre,
+        surname: apellido,
+        surname2: apellido2,
+        email: userEmail,
+        nick: userNick,
+        dni: userDni,
+        password: contrasena
     });
   }
 
@@ -129,6 +135,10 @@ export class AuthService {
     // Check whether the current time is past the
     // access token's expiry time
     return new Date().getTime() < this._expiresAt;
+  }
+
+  public estaAutenticado(): boolean {
+    return this.isUserLoggedIn;
   }
 
   public getProfile(cb): void {

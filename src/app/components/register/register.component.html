@@ -38,6 +38,9 @@
     <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
         <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
             <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">REGÍSTRATE</h3>
+          <h4 *ngIf="erroneo" class="title text-center  mb-lg-5 mb-md-4 mb-sm-4 mb-3 alert-danger">
+            Usuario/password incorrecto
+          </h4>
             <div class="agile-info-para">
                 <div class="row contactright pb-lg-5 pb-md-4 pb-sm-3 pb-3">
                     <div class="col-lg-4 col-md-4  text-center contact-address-grid">

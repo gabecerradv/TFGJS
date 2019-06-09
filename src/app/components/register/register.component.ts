@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from "@angular/forms";
+import { NgForm } from '@angular/forms';
+import { AuthService } from '../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-register',
@@ -10,8 +12,9 @@ import { NgForm } from "@angular/forms";
 export class RegisterComponent implements OnInit {
     alertDni: boolean;
     contIguales: boolean;
+    erroneo: boolean;
 
-    constructor() {
+    constructor(public auth: AuthService, private router: Router) {
     }
 
     ngOnInit() {
@@ -21,9 +24,31 @@ export class RegisterComponent implements OnInit {
         if (!this.alertDni && this.contIguales) {
             console.log(forma);
             console.log(forma.value);
+            let p1= forma.value.Password1;
+            let apellido = forma.value.apellido;
+            let apellido2 = forma.value.apellido2;
+            let dni = forma.value.dni;
+            let email = forma.value.email;
+            let nick= forma.value.nick;
+            let nombre = forma.value.nombre;
+            this.auth.userRegister(nombre,apellido,apellido2,email,nick,dni,p1)
+              .subscribe(res => {
+                  console.log(res);
+                  this.auth.setUserLoggedIn(res);
+
+                },
+                error => {
+                  this.erroneo = true;
+                },
+                () => this.navigate()
+              );
+
         }
     }
 
+  navigate() {
+    this.router.navigateByUrl('/login');
+  }
     validatePaswords(forma: NgForm): void {
         let password1 = forma.value.Password1;
         let password2 = forma.value.Password2;

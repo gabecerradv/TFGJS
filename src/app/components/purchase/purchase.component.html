@@ -44,7 +44,16 @@
     </div>
   </div>
 </div>
-<main *ngIf="(!facebook && !google)">
+<div *ngIf="erroneo">
+  <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">TU PROGRESO</h3>
+  <h2 class="text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Lo sentimos, no ha sido posible realizar la suscrpción </h2>
+  <div class="text-center">
+    <div class="text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">
+      <button class="btn btn-outline-primary" [routerLink]="['/register']">Regístrate</button>
+    </div>
+  </div>
+</div>
+<main *ngIf="(!facebook && !google && !erroneo)">
   <section class="contact py-lg-4 py-md-3 py-sm-3 py-3">
     <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
       <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">ELIGE TU PLAN</h3>

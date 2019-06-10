@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import {NgForm} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-evolution',
@@ -13,8 +14,9 @@ export class EvolutionComponent implements OnInit {
   google: boolean;
   fuente: string;
   datos: any[];
+  erroneo: boolean;
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.obtenerPerfil();
@@ -59,10 +61,21 @@ export class EvolutionComponent implements OnInit {
     }
   }
 
-  guardar( forma: NgForm ){
+  guardar( forma: NgForm ) {
     console.log(forma);
     console.log(forma.value);
+    this.auth.userProgress(forma.value.peso, forma.value.fecha)
+      .subscribe(res => {
+          console.log(res);
 
+
+        },
+        error => {
+          this.erroneo = true;
+        });
+  }
+  navigate() {
+    this.router.navigateByUrl('/home');
   }
 
 }

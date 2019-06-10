@@ -72,7 +72,14 @@ export class AuthService {
     });
   }
 
-  userProgress() {
+  userProgress(pesoUsuario: number, fechaPeso: string) {
+    return this.http.post('https://reqres.in/api/login', {
+      dia: fechaPeso,
+      peso: pesoUsuario
+    });
+  }
+
+  userFreeDay() {
     return this.http.post('https://reqres.in/api/login', {
 
     });

@@ -8,7 +8,9 @@ import {AuthService} from '../../core/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   profile: any;
+  nombre: string;
   id: any;
+  logado: boolean;
   valido: boolean;
   google: boolean;
 
@@ -19,8 +21,16 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.google = false;
     this.manejarComprobacion();
+    this.buscarUsuario();
   }
 
+  buscarUsuario() {
+    const resp = this.auth.getUserLoggedIn();
+    this.logado = true;
+    this.nombre = resp.nombre;
+    // console.log(nombre);
+
+  }
   manejarComprobacion() {
 
     this.id = setInterval(() => {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
-import {NgForm} from '@angular/forms';
-import {Router} from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-evolution',
@@ -22,19 +22,20 @@ export class EvolutionComponent implements OnInit {
     this.obtenerPerfil();
     this.facebook = false;
     this.google = false;
+    this.datos = [];
     if (this.profile) {
       this.comprobarFuente();
     }
-    // this.datos = [
-    //   {
-    //     dia: '19/07/19',
-    //     peso: 115
-    //   },
-    //   {
-    //     dia: '29/07/19',
-    //     peso: 110
-    //   }
-    // ];
+    this.datos = [
+      {
+        dia: '19/07/19',
+        peso: 115
+      },
+      {
+        dia: '29/07/19',
+        peso: 110
+      }
+    ];
   console.log(this.datos.length);
   }
 
@@ -46,6 +47,20 @@ export class EvolutionComponent implements OnInit {
         this.profile = profile;
       });
     }
+  }
+
+  obtenerProgreso() {
+    const idUsuario = 5;
+    this.auth.loadUserProgress(idUsuario)
+      .subscribe(res => {
+          console.log(res);
+          this.datos = [res];
+
+        },
+        error => {
+          this.erroneo = true;
+        });
+
   }
 
   comprobarFuente() {

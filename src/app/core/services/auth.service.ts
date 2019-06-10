@@ -79,9 +79,19 @@ export class AuthService {
     });
   }
 
-  userFreeDay() {
+  loadUserProgress(idUsuario: number) {
     return this.http.post('https://reqres.in/api/login', {
-
+      id: idUsuario
+    });
+  }
+  userFreeDay(nombre: string, emailU: string, tel: number, dniU: string, fechaU: string, horaU: string) {
+    return this.http.post('https://reqres.in/api/login', {
+      name: nombre,
+      email: emailU,
+      telefono: tel,
+      dni: dniU,
+      fecha: fechaU,
+      hora: horaU
     });
   }
 

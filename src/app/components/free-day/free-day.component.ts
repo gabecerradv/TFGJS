@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {AuthService} from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-free-day',
@@ -8,8 +9,9 @@ import {NgForm} from "@angular/forms";
 })
 export class FreeDayComponent implements OnInit {
   alertDni: boolean;
+  erroneo: boolean;
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit() {
   }
@@ -18,6 +20,21 @@ export class FreeDayComponent implements OnInit {
     if (!this.alertDni) {
       console.log(forma);
       console.log(forma.value);
+      const nombre =forma.value.nombre;
+      const email =forma.value.email;
+      const tel =forma.value.tel;
+      const dni =forma.value.dni;
+      const fecha =forma.value.fecha;
+      const hora =forma.value.hora;
+      this.auth.userFreeDay(nombre, email, tel, dni, fecha, hora)
+        .subscribe(res => {
+            console.log(res);
+
+
+          },
+          error => {
+            this.erroneo = true;
+          });
     }
   }
 

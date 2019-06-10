@@ -17,6 +17,7 @@ erroneo: boolean;
 
   ngOnInit() {
     this.erroneo = false;
+    this.guardarPerfil();
   }
 
   login() {
@@ -25,6 +26,14 @@ erroneo: boolean;
 
   logout() {
     this.auth.logout();
+  }
+  guardarPerfil() {
+    const perfil = {
+      nombre: 'gafito',
+      fecha_nacimiento: '29/12/1985',
+      email: 'gabecerrafit@gmail.com'
+    };
+    this.auth.setUserLoggedIn(perfil);
   }
 
   guardar( forma: NgForm ) {

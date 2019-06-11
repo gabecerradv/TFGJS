@@ -17,7 +17,7 @@ erroneo: boolean;
 
   ngOnInit() {
     this.erroneo = false;
-    this.guardarPerfil();
+
   }
 
   login() {

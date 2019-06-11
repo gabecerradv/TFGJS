@@ -6,7 +6,7 @@ import * as auth0 from 'auth0-js';
 
 @Injectable()
 export class AuthService {
-  private isUserLoggedIn: boolean;
+  public isUserLoggedIn: boolean;
   public usserLogged: any;
 
   private _idToken: string;
@@ -34,15 +34,16 @@ export class AuthService {
 
   setUserLoggedIn(user) {
     this.isUserLoggedIn = true;
-    this.usserLogged = user;
     localStorage.setItem('currentUser', JSON.stringify(user));
+  }
 
+  deleteUser() {
+    this.isUserLoggedIn = false;
   }
 
   getUserLoggedIn() {
     return JSON.parse(localStorage.getItem('currentUser'));
   }
-
 
   userLogin(usuario: string, contrasena: string) {
     return this.http.post('https://reqres.in/api/login', {
@@ -143,9 +144,9 @@ export class AuthService {
     this._idToken = '';
     this._expiresAt = 0;
 
-    this.auth0.logout({
-      return_to: window.location.origin
-    });
+    // this.auth0.logout({
+    //   return_to: window.location.origin
+    // });
   }
 
   public isAuthenticated(): boolean {

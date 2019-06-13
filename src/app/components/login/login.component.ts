@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 erroneo: boolean;
+valido: boolean;
 
   constructor(public auth: AuthService, private router: Router) {
     auth.handleAuthentication();
@@ -38,12 +39,14 @@ erroneo: boolean;
 
   guardar( forma: NgForm ) {
     console.log(forma);
-    console.log(forma.value.email);
-    console.log(forma.value.Password);
     this.auth.userLogin(forma.value.email, forma.value.Password)
       .subscribe(res => {
           console.log(res);
           this.auth.setUserLoggedIn(res);
+          setTimeout(() => {
+            this.navigate();
+          }, 3000);
+          this.valido = true;
 
         },
         error => {

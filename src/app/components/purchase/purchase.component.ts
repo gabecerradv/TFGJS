@@ -14,6 +14,7 @@ export class PurchaseComponent implements OnInit {
   google: boolean;
   fuente: string;
   erroneo: boolean;
+  valido: boolean;
 
   constructor(public auth: AuthService, private router: Router) {
     auth.handleAuthentication();
@@ -53,13 +54,13 @@ export class PurchaseComponent implements OnInit {
   }
 
   guardar( forma: NgForm ) {
-    console.log(forma.value);
-    console.log(forma.value.email);
-    console.log(forma.value.Password);
     this.auth.userPurchase(forma.value.plan, forma.value.duracion, forma.value.inicio, forma.value.forma_pago)
       .subscribe(res => {
           console.log(res);
-
+          setTimeout(() => {
+            this.navigate();
+          }, 3000);
+          this.valido = true;
         },
         error => {
           this.erroneo = true;

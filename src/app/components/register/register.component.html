@@ -279,8 +279,11 @@
                      #check="ngModel"
               >
               <label> *Acepto los términos y condiciones de uso</label>
-              <div *ngIf="valido" class="alert-success">
-                Registro realizada correctamente
+              <div *ngIf="valido" class="h3 alert-success">
+                Registro realizado correctamente
+              </div>
+              <div *ngIf="erroneo" class="h4 alert-danger">
+                Ya estabas registrado, consulta en tu gimnasio.
               </div>
               <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
 

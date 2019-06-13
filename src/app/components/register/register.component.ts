@@ -23,8 +23,8 @@ export class RegisterComponent implements OnInit {
 
   guardar(forma: NgForm): void {
     if (!this.alertDni && this.contIguales) {
-      console.log(forma);
-      console.log(forma.value);
+      // console.log(forma);
+      // console.log(forma.value);
       const p1 = forma.value.Password1;
       const apellido = forma.value.apellido;
       const apellido2 = forma.value.apellido2;
@@ -33,18 +33,20 @@ export class RegisterComponent implements OnInit {
       const nick = forma.value.nick;
       const nombre = forma.value.nombre;
       const direccion = forma.value.direccion;
+
       this.auth.userRegister(nombre, apellido, apellido2, email, nick, dni, p1, direccion)
         .subscribe(res => {
             console.log(res);
+            setTimeout(() => {
+              this.navigate();
+            }, 3000);
             this.valido = true;
-
           },
           error => {
             this.erroneo = true;
           },
           () => this.navigate()
         );
-
     }
   }
 

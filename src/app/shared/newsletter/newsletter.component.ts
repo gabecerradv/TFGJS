@@ -25,14 +25,17 @@ valido: boolean;
     this.auth.userNewsletter(forma.value.email)
       .subscribe(res => {
           console.log(res);
+          setTimeout(() => {
+            this.navigate();
+          }, 2000);
           this.valido = true;
 
         },
         error => {
           this.erroneo = true;
         },
-        () => this.navigate()
-      );
+        // () => this.navigate()
+       );
   }
 
   navigate() {

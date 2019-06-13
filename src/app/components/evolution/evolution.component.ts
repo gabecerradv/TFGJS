@@ -15,6 +15,7 @@ export class EvolutionComponent implements OnInit {
   fuente: string;
   datos: any[];
   erroneo: boolean;
+  valido: boolean;
 
   constructor(public auth: AuthService, private router: Router) { }
 
@@ -36,7 +37,6 @@ export class EvolutionComponent implements OnInit {
         peso: 110
       }
     ];
-  console.log(this.datos.length);
   }
 
   obtenerPerfil() {
@@ -82,6 +82,10 @@ export class EvolutionComponent implements OnInit {
     this.auth.userProgress(forma.value.peso, forma.value.fecha)
       .subscribe(res => {
           console.log(res);
+          setTimeout(() => {
+            this.navigate();
+          }, 3000);
+          this.valido = true;
 
 
         },

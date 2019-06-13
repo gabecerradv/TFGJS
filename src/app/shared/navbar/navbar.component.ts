@@ -34,8 +34,8 @@ export class NavbarComponent implements OnInit {
       }
     }
 
-    console.log(this.nombre);
-    console.log(this.logado);
+    // console.log(this.nombre);
+    // console.log(this.logado);
 
   }
   manejarComprobacion() {

@@ -17,6 +17,12 @@
             <div class="clr" *ngIf="email.errors?.required && email.dirty">
               Este campo es obligatorio
             </div>
+            <div *ngIf="erroneo" class="alert-danger">
+              Ya estabas registrado
+            </div>
+            <div *ngIf="valido" class="alert-success">
+              Suscripcion realizada correctamente
+            </div>
             <div class="clr" *ngIf="email.errors?.pattern">
               Este campo debe ser un correo electrónico válido
             </div>

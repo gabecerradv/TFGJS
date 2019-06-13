@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import * as auth0 from 'auth0-js';
 
 @Injectable()
 export class AuthService {
   public isUserLoggedIn: boolean;
-  public usserLogged: any;
+  // public usserLogged: any;
 
   private _idToken: string;
   private _accessToken: string;
@@ -52,7 +51,13 @@ export class AuthService {
     });
   }
 
-  userRegister(nombre, apellido, apellido2, userEmail, userNick, userDni, contrasena) {
+  userNewsletter(usuario: string) {
+    return this.http.post('http://tfg.local/', {
+      email: usuario
+    });
+  }
+
+  userRegister(nombre, apellido, apellido2, userEmail, userNick, userDni, contrasena, dir) {
     return this.http.post('http://tfg.local/api/users', {
         name: nombre,
         email: userEmail,
@@ -61,7 +66,7 @@ export class AuthService {
         surname: apellido,
         secondSurname: apellido2,
         dni: userDni,
-        direction: 'direccion'
+        direction: dir
     });
   }
 

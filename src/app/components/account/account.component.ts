@@ -8,6 +8,7 @@ import { AuthService } from '../../core/services/auth.service';
 })
 export class AccountComponent implements OnInit {
   profile: any;
+  nombre: string;
   facebook: boolean;
   google: boolean;
 
@@ -20,8 +21,16 @@ export class AccountComponent implements OnInit {
       if (this.profile) {
         this.comprobarFuente();
       }
+      this.buscarUsuario();
   }
 
+  buscarUsuario() {
+    if (this.auth.estaAutenticado()) {
+      const resp = this.auth.getUserLoggedIn();
+      this.nombre = resp.nombre;
+      console.log('el nombre desde cuenta es: ' +this.nombre);
+    }
+  }
   obtenerPerfil() {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;

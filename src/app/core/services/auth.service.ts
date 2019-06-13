@@ -46,26 +46,27 @@ export class AuthService {
   }
 
   userLogin(usuario: string, contrasena: string) {
-    return this.http.post('https://reqres.in/api/login', {
+    return this.http.post('http://tfg.local/login', {
       email: usuario,
       password: contrasena,
     });
   }
 
   userRegister(nombre, apellido, apellido2, userEmail, userNick, userDni, contrasena) {
-    return this.http.post('https://reqres.in/api/login', {
+    return this.http.post('http://tfg.local/api/users', {
         name: nombre,
-        surname: apellido,
-        surname2: apellido2,
         email: userEmail,
+        password: contrasena,
         nick: userNick,
+        surname: apellido,
+        secondSurname: apellido2,
         dni: userDni,
-        password: contrasena
+        direction: 'direccion'
     });
   }
 
   userPurchase(tipoPlan: string, duracionContrato: number, fechaInicio: string, formaPago: number) {
-    return this.http.post('https://reqres.in/api/login', {
+    return this.http.post('http://tfg.local/api/programs', {
       tipo: tipoPlan,
       duracion: duracionContrato,
       fecha: fechaInicio,

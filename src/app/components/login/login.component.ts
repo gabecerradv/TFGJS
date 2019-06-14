@@ -47,7 +47,7 @@ valido: boolean;
     console.log(forma);
     this.auth.userLogin(forma.value.email, forma.value.Password)
       .subscribe(res => {
-          console.log(res);
+          console.log(res['data']);
           this.valido = true;
           this.auth.setUserLoggedIn(res);
           setTimeout(() => {

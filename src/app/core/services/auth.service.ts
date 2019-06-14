@@ -44,12 +44,9 @@ export class AuthService {
     return JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  userLogin(usuario: string, contrasena: string) {
-    return this.http.post('http://tfg.local/login', {
-      email: usuario,
-      password: contrasena,
-    });
-  }
+    userLogin(usuario: string, contrasena: string) {
+        return this.http.get('http://tfg.local/api/users/' + usuario + '/' + contrasena);
+    }
 
   userNewsletter(usuario: string) {
     return this.http.post('http://tfg.local/', {
@@ -105,13 +102,17 @@ export class AuthService {
     });
   }
 
-  get accessToken(): string {
-    return this._accessToken;
-  }
+    get accessToken()
+        :
+        string {
+        return this._accessToken;
+    }
 
-  get idToken(): string {
-    return this._idToken;
-  }
+    get idToken()
+        :
+        string {
+        return this._idToken;
+    }
 
   public login(): void {
     this.auth0.authorize();
@@ -168,10 +169,14 @@ export class AuthService {
     return this.isUserLoggedIn;
   }
 
-  public getProfile(cb): void {
-    // if (!this._accessToken) {
-    //   throw new Error('Access Token must exist to fetch profile');
-    // }
+    public
+
+    getProfile(cb)
+        :
+        void {
+        // if (!this._accessToken) {
+        //   throw new Error('Access Token must exist to fetch profile');
+        // }
 
     const self = this;
     this.auth0.client.userInfo(this._accessToken, (err, profile) => {

@@ -48,12 +48,11 @@ valido: boolean;
     this.auth.userLogin(forma.value.email, forma.value.Password)
       .subscribe(res => {
           console.log(res);
+          this.valido = true;
           this.auth.setUserLoggedIn(res);
           setTimeout(() => {
             this.navigate();
           }, 3000);
-          this.valido = true;
-
         },
         error => {
           this.erroneo = true;

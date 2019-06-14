@@ -29,22 +29,7 @@ valido: boolean;
     this.auth.logout();
   }
 
-  guardarPerfil() {
-    const perfil = {
-      nombre: 'gafito',
-      id: 144,
-      fecha_nacimiento: '29/12/1985',
-      email: 'gabecerrafit@gmail.com'
-    };
-    this.valido = true;
-    this.auth.setUserLoggedIn(perfil);
-    setTimeout(() => {
-      this.navigate();
-    }, 3000);
-  }
-
-  guardar( forma: NgForm ) {
-    console.log(forma);
+   guardar( forma: NgForm ) {
     this.auth.userLogin(forma.value.email, forma.value.Password)
       .subscribe(res => {
           console.log(res['data']);

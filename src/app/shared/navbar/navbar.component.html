@@ -45,7 +45,7 @@
                 <a class="dropdown-item" [routerLink]="['sports']">Deportes</a>
               </div>
             </li>
-            <li *ngIf="!auth.isAuthenticated()" class="nav-item" routerLinkActive="active">
+            <li *ngIf="!auth.isAuthenticated() && !auth.estaAutenticado()" class="nav-item" routerLinkActive="active">
               <a [routerLink]="['register']" class="nav-link">Regístrate</a>
             </li>
             <li class="nav-item dropdown">

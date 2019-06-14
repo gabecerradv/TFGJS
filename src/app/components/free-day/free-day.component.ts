@@ -28,7 +28,7 @@ export class FreeDayComponent implements OnInit {
       const fecha = forma.value.fecha;
       const hora = forma.value.hora;
 
-      this.auth.userFreeDay(nombre, email, tel, dni, fecha, hora)
+      this.auth.userFreeDay(nombre, tel, dni, fecha)
         .subscribe(res => {
             console.log(res);
             setTimeout(() => {

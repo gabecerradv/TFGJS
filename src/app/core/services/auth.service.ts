@@ -49,7 +49,7 @@ export class AuthService {
     }
 
     userNewsletter(usuario: string) {
-        return this.http.post('http://tfg.local/', {
+        return this.http.post('http://tfg.local/api/newsletters', {
             email: usuario
         });
     }
@@ -67,39 +67,36 @@ export class AuthService {
         });
     }
 
-    userPurchase(tipoPlan: string, formaPago: number, idUser: number) {
+    userPurchase(tipoPlan: string, formaPago: number, fechaInicio: string, idUser: number) {
         return this.http.post('http://tfg.local/api/clients', {
             user_id: idUser,
             program_id: tipoPlan,
-            // start_date: fechaInicio,
+            start_date: fechaInicio,
             payment: formaPago,
         });
     }
 
     userProgress(idUser: number, pesoUsuario: number, fechaPeso: string
     ) {
-        return this.http.post('https://reqres.in/api/login', {
-            id: idUser,
-            dia: fechaPeso,
-            peso: pesoUsuario
+        return this.http.post('http://tfg.local/api/progress', {
+            user_id: idUser,
+            last_date: fechaPeso,
+            weight: pesoUsuario
         });
     }
 
     loadUserProgress(idUser: number) {
-        return this.http.post('https://reqres.in/api/login', {
-            id: idUser
+        return this.http.get('http://tfg.local/api/progress/' + idUser, {
         });
     }
 
-    userFreeDay(nombre: string, emailU: string, tel: number, dniU: string, fechaU: string, horaU: string
+    userFreeDay(nombre: string, tel: number, dniU: string, fechaU: string,
     ) {
-        return this.http.post('https://reqres.in/api/login', {
+        return this.http.post('http://tfg.local/api/free_trials', {
             name: nombre,
-            email: emailU,
-            telefono: tel,
+            tlf: tel,
             dni: dniU,
-            fecha: fechaU,
-            hora: horaU
+            trial_date: fechaU,
         });
     }
 

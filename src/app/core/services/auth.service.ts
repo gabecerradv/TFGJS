@@ -70,8 +70,9 @@ export class AuthService {
     });
   }
 
-  userPurchase(tipoPlan: string, duracionContrato: number, fechaInicio: string, formaPago: number) {
+  userPurchase(tipoPlan: string, duracionContrato: number, fechaInicio: string, formaPago: number, idUser: number) {
     return this.http.post('http://tfg.local/api/programs', {
+      id: idUser,
       tipo: tipoPlan,
       duracion: duracionContrato,
       fecha: fechaInicio,
@@ -79,18 +80,20 @@ export class AuthService {
     });
   }
 
-  userProgress(pesoUsuario: number, fechaPeso: string) {
+  userProgress(idUser: number, pesoUsuario: number, fechaPeso: string) {
     return this.http.post('https://reqres.in/api/login', {
+      id: idUser,
       dia: fechaPeso,
       peso: pesoUsuario
     });
   }
 
-  loadUserProgress(idUsuario: number) {
+  loadUserProgress(idUser: number) {
     return this.http.post('https://reqres.in/api/login', {
-      id: idUsuario
+      id: idUser
     });
   }
+
   userFreeDay(nombre: string, emailU: string, tel: number, dniU: string, fechaU: string, horaU: string) {
     return this.http.post('https://reqres.in/api/login', {
       name: nombre,
@@ -175,7 +178,7 @@ export class AuthService {
       if (profile) {
         self.userProfile = profile;
       }
-      cb(err, profile);
+      // cb(err, profile);
     });
   }
 

@@ -8,8 +8,7 @@ import { AuthService } from '../../core/services/auth.service';
 })
 export class AccountComponent implements OnInit {
   profile: any;
-  perfil: any
-  nombre: string;
+  perfil: any;
   facebook: boolean;
   google: boolean;
 
@@ -28,10 +27,9 @@ export class AccountComponent implements OnInit {
   buscarUsuario() {
     if (this.auth.estaAutenticado()) {
       this.perfil = this.auth.getUserLoggedIn();
-      this.nombre = this.perfil.nombre;
-      console.log('el nombre desde cuenta es: ' + this.nombre);
     }
   }
+
   obtenerPerfil() {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;

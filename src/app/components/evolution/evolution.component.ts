@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class EvolutionComponent implements OnInit {
   profile: any;
+  perfil: any;
+  id: number;
   facebook: boolean;
   google: boolean;
   fuente: string;
@@ -21,22 +23,30 @@ export class EvolutionComponent implements OnInit {
 
   ngOnInit() {
     this.obtenerPerfil();
+    this.buscarUsuario();
     this.facebook = false;
     this.google = false;
     this.datos = [];
     if (this.profile) {
       this.comprobarFuente();
     }
-    this.datos = [
-      {
-        dia: '19/07/19',
-        peso: 115
-      },
-      {
-        dia: '29/07/19',
-        peso: 110
-      }
-    ];
+    // this.datos = [
+    //   {
+    //     dia: '19/07/19',
+    //     peso: 115
+    //   },
+    //   {
+    //     dia: '29/07/19',
+    //     peso: 110
+    //   }
+    // ];
+  }
+
+  buscarUsuario() {
+    if (this.auth.estaAutenticado()) {
+      this.perfil = this.auth.getUserLoggedIn();
+      this.id = this.perfil.id;
+    }
   }
 
   obtenerPerfil() {
@@ -47,20 +57,6 @@ export class EvolutionComponent implements OnInit {
         this.profile = profile;
       });
     }
-  }
-
-  obtenerProgreso() {
-    const idUsuario = 5;
-    this.auth.loadUserProgress(idUsuario)
-      .subscribe(res => {
-          console.log(res);
-          this.datos = [res];
-
-        },
-        error => {
-          this.erroneo = true;
-        });
-
   }
 
   comprobarFuente() {
@@ -79,7 +75,7 @@ export class EvolutionComponent implements OnInit {
   guardar( forma: NgForm ) {
     console.log(forma);
     console.log(forma.value);
-    this.auth.userProgress(forma.value.peso, forma.value.fecha)
+    this.auth.userProgress(this.id, forma.value.peso, forma.value.fecha)
       .subscribe(res => {
           console.log(res);
           setTimeout(() => {
@@ -93,6 +89,20 @@ export class EvolutionComponent implements OnInit {
           this.erroneo = true;
         });
   }
+
+  obtenerProgreso() {
+    this.auth.loadUserProgress(this.id)
+      .subscribe(res => {
+          console.log(res);
+          this.datos = [res];
+
+        },
+        error => {
+          this.erroneo = true;
+        });
+
+  }
+
   navigate() {
     this.router.navigateByUrl('/home');
   }

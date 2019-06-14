@@ -55,11 +55,13 @@ const routes: Routes = [
   },
   {
     path: 'purchase',
-    component: PurchaseComponent
+    component: PurchaseComponent,
+    canActivate: [ AuthGuardService ]
   },
   {
     path: 'body-check',
-    component: PersonalComponent
+    component: PersonalComponent,
+    canActivate: [ AuthGuardService ]
   },
   {
     path: 'copyright',
@@ -71,11 +73,13 @@ const routes: Routes = [
   },
   {
     path: 'progreso',
-    component: EvolutionComponent
+    component: EvolutionComponent,
+    canActivate: [ AuthGuardService ]
   },
   {
     path: 'free',
-    component: FreeDayComponent
+    component: FreeDayComponent,
+    canActivate: [ AuthGuardService ]
   },
   {
     path: 'login',

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PurchaseComponent implements OnInit {
   profile: any;
+  perfil: any;
   facebook: boolean;
   google: boolean;
   fuente: string;
@@ -23,10 +24,17 @@ export class PurchaseComponent implements OnInit {
   ngOnInit() {
     this.erroneo = false;
     this.obtenerPerfil();
+    this.buscarUsuario();
     this.facebook = false;
     this.google = false;
     if (this.profile) {
       this.comprobarFuente();
+    }
+  }
+
+  buscarUsuario() {
+    if (this.auth.estaAutenticado()) {
+      this.perfil = this.auth.getUserLoggedIn();
     }
   }
 
@@ -54,7 +62,8 @@ export class PurchaseComponent implements OnInit {
   }
 
   guardar( forma: NgForm ) {
-    this.auth.userPurchase(forma.value.plan, forma.value.duracion, forma.value.inicio, forma.value.forma_pago)
+    const id = this.perfil.id;
+    this.auth.userPurchase(forma.value.plan, forma.value.duracion, forma.value.inicio, forma.value.forma_pago, id)
       .subscribe(res => {
           console.log(res);
           setTimeout(() => {

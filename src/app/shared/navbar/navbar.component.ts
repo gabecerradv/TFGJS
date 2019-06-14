@@ -60,6 +60,7 @@ export class NavbarComponent implements OnInit {
     this.auth.logout();
     this.auth.deleteUser();
     this.manejarComprobacion();
+    location.reload();
     this.router.navigateByUrl('/home');
   }
 

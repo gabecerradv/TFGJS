@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,7 @@ export class NavbarComponent implements OnInit {
   valido: boolean;
   google: boolean;
 
-  constructor(public auth: AuthService) {
+  constructor(public auth: AuthService, private router: Router) {
     auth.handleAuthentication();
   }
 
@@ -59,6 +60,7 @@ export class NavbarComponent implements OnInit {
     this.auth.logout();
     this.auth.deleteUser();
     this.manejarComprobacion();
+    this.router.navigateByUrl('/home');
   }
 
   comprobarUser() {

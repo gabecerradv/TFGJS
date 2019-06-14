@@ -15,7 +15,7 @@ export class AuthGuardService implements CanActivate {
       return true;
     } else {
       console.error('Bloqueado por el guard');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/login']);
       // this.auth.login();
       return false;
     }

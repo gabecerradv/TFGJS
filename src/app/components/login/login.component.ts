@@ -32,6 +32,7 @@ valido: boolean;
   guardarPerfil() {
     const perfil = {
       nombre: 'gafito',
+      id: 144,
       fecha_nacimiento: '29/12/1985',
       email: 'gabecerrafit@gmail.com'
     };

@@ -169,11 +169,7 @@ export class AuthService {
     return this.isUserLoggedIn;
   }
 
-    public
-
-    getProfile(cb)
-        :
-        void {
+    public getProfile(cb): void {
         // if (!this._accessToken) {
         //   throw new Error('Access Token must exist to fetch profile');
         // }

@@ -49,7 +49,7 @@ valido: boolean;
       .subscribe(res => {
           console.log(res['data']);
           this.valido = true;
-          this.auth.setUserLoggedIn(res);
+          this.auth.setUserLoggedIn(res['data']);
           setTimeout(() => {
             this.navigate();
           }, 3000);

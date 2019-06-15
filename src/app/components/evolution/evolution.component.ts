@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-evolution',
@@ -9,21 +10,28 @@ import {NgForm} from '@angular/forms';
 })
 export class EvolutionComponent implements OnInit {
   profile: any;
+  perfil: any;
+  id: number;
   facebook: boolean;
   google: boolean;
   fuente: string;
   datos: any[];
+  erroneo: boolean;
+  valido: boolean;
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.obtenerPerfil();
-    this.facebook = false;
-    this.google = false;
-    if (this.profile) {
-      this.comprobarFuente();
-    }
-    // this.datos = [
+      this.buscarUsuario();
+      this.facebook = false;
+      this.google = false;
+      this.datos = [];
+      if (this.profile) {
+          this.comprobarFuente();
+      }
+      this.obtenerProgreso();
+      // this.datos = [
     //   {
     //     dia: '19/07/19',
     //     peso: 115
@@ -33,7 +41,13 @@ export class EvolutionComponent implements OnInit {
     //     peso: 110
     //   }
     // ];
-  console.log(this.datos.length);
+  }
+
+  buscarUsuario() {
+    if (this.auth.estaAutenticado()) {
+      this.perfil = this.auth.getUserLoggedIn();
+      this.id = this.perfil.id;
+    }
   }
 
   obtenerPerfil() {
@@ -59,10 +73,34 @@ export class EvolutionComponent implements OnInit {
     }
   }
 
-  guardar( forma: NgForm ){
+  guardar( forma: NgForm ) {
     console.log(forma);
     console.log(forma.value);
+    this.auth.userProgress(this.id, forma.value.peso, forma.value.fecha)
+      .subscribe(res => {
+          this.valido = true;
+          this.obtenerProgreso();
+        },
+        error => {
+          this.erroneo = true;
+            this.valido =false;
+        });
+  }
 
+  obtenerProgreso() {
+    this.auth.loadUserProgress(this.id)
+      .subscribe(res => {
+          console.log(res['data']);
+          this.datos = [res['data']];
+        },
+        error => {
+          this.erroneo = true;
+        });
+
+  }
+
+  navigate() {
+    this.router.navigateByUrl('/home');
   }
 
 }

@@ -9,13 +9,14 @@
         </div>
         <form class="form-inline my-2 my-lg-0 navbar-light">
           <h4><a class="navbar-brand user" *ngIf="valido">Hola, {{profile.given_name}} </a></h4>
-          <h4><a class="navbar-brand user" *ngIf="!valido">Hola, identifícate</a></h4>
+          <h4><a class="navbar-brand user" *ngIf="logado">Hola, {{nombre}} </a></h4>
+          <h4><a class="navbar-brand user" *ngIf="!valido && !logado">Hola, identifícate</a></h4>
           <button [routerLink]="['/login']"
-                  *ngIf="!auth.isAuthenticated()"
+                  *ngIf="!auth.isAuthenticated() && !logado"
                   class="fas fa-user btn btn-outline-light"  type="button" > Ingresar</button>
           <button (click)="logout()"
-                  *ngIf="auth.isAuthenticated()"
-                  class="fas fa-sign-out-alt btn btn-outline-light"  type="button" > Salir</button>
+                  *ngIf="auth.isAuthenticated() || logado"
+                  class="fas fa-sign-out-alt btn btn-outline-light" type="button" > Salir</button>
 
         </form>
         <div class="clearfix"></div>
@@ -44,7 +45,7 @@
                 <a class="dropdown-item" [routerLink]="['sports']">Deportes</a>
               </div>
             </li>
-            <li *ngIf="!auth.isAuthenticated()" class="nav-item" routerLinkActive="active">
+            <li *ngIf="!auth.isAuthenticated() && !auth.estaAutenticado()" class="nav-item" routerLinkActive="active">
               <a [routerLink]="['register']" class="nav-link">Regístrate</a>
             </li>
             <li class="nav-item dropdown">
@@ -53,14 +54,14 @@
                 Mi cuenta
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown" routerLinkActive="active">
-                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['account']">Tu cuenta</a>
-                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['purchase']">Contrata un plan</a>
-                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['free']">Solicitar prueba gratuita</a>
-                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['progreso']">Progreso</a>
-                <a *ngIf="auth.isAuthenticated()" class="dropdown-item" [routerLink]="['body-check']">Body check</a>
-                <button *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']" class="dropdown-item">Ingresar</button>
-                <a *ngIf="!auth.isAuthenticated()" class="dropdown-item" [routerLink]="['register']">Registro</a>
-                <button *ngIf="auth.isAuthenticated()" (click)="logout()" class="dropdown-item">Salir</button>
+                <a *ngIf="auth.isAuthenticated() || logado" class="dropdown-item" [routerLink]="['account']">Tu cuenta</a>
+                <a *ngIf="auth.isAuthenticated() || logado" class="dropdown-item" [routerLink]="['purchase']">Contrata un plan</a>
+                <a *ngIf="auth.isAuthenticated() || logado" class="dropdown-item" [routerLink]="['free']">Solicitar prueba gratuita</a>
+                <a *ngIf="auth.isAuthenticated() || logado" class="dropdown-item" [routerLink]="['progreso']">Progreso</a>
+                <a *ngIf="auth.isAuthenticated() || logado" class="dropdown-item" [routerLink]="['body-check']">Body check</a>
+                <button *ngIf="!auth.isAuthenticated() && !logado" [routerLink]="['/login']" class="dropdown-item">Ingresar</button>
+                <a *ngIf="!auth.isAuthenticated() && !logado" class="dropdown-item" [routerLink]="['register']">Registro</a>
+                <button *ngIf="auth.isAuthenticated() || logado" (click)="logout()" class="dropdown-item">Salir</button>
               </div>
             </li>
             <li class="nav-item" routerLinkActive="active">

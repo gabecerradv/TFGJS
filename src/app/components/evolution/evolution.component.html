@@ -87,8 +87,13 @@
                                      min="2019-06-17">
                             </div>
                           </div>
-
                         </div>
+                      <div *ngIf="valido" class="h3 alert-success">
+                        Registro guardado correctamente
+                      </div>
+                      <div *ngIf="erroneo" class="h4 alert-danger">
+                        Ups ha habido un error al guardar los datos, consulta en tu gimnasio.
+                      </div>
                       <div class="col-lg-12 col-md-12 form-group contact-forms">
                         <button type="submit" id="envio"
                                 class="btn sent-butnn btn-lg"
@@ -106,14 +111,21 @@
                     <div class="ser-inner-info">
                       <h4>Últimos movimientos</h4>
                       <div class="list-of-evolution">
-                      <div *ngIf="(!datos)" class="no-data">
+                      <div *ngIf="(datos.length === 0)" class="no-data">
                         <p>No hay registros guardados</p>
                       </div>
                       </div>
-                        <div *ngIf="datos.length" >
-                          <div *ngFor="let datos of datos" class="results">
-                            <span>Día {{datos.dia}}</span>
-                            <span>Peso {{datos.peso}}</span>
+                        <div *ngIf="datos.length >0" >
+                          <div *ngFor="let results of datos" class="results">
+                              <ul>
+                          <div *ngFor="let dato of results" class="results">
+                              <li>
+                            <span>Día {{dato.last_date}} &nbsp;&nbsp;&nbsp;</span>
+                            <span>Peso {{dato.weight}}</span>
+                                  </li>
+                              <br>
+                          </div>
+                              </ul>
                           </div>
                         </div>
 

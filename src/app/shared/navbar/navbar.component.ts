@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../core/services/auth.service';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,11 +9,14 @@ import {AuthService} from '../../core/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   profile: any;
+  nombre: string;
   id: any;
+  id2: any;
+  logado: boolean;
   valido: boolean;
   google: boolean;
 
-  constructor(public auth: AuthService) {
+  constructor(public auth: AuthService, private router: Router) {
     auth.handleAuthentication();
   }
 
@@ -21,14 +25,29 @@ export class NavbarComponent implements OnInit {
     this.manejarComprobacion();
   }
 
-  manejarComprobacion() {
+  buscarUsuario() {
+    if (this.auth.estaAutenticado()) {
+      const resp = this.auth.getUserLoggedIn();
+      this.nombre = resp.name;
+      if (this.nombre !== undefined) {
+        this.logado = true;
+        clearInterval(this.id);
+      }
+    }
 
-    this.id = setInterval(() => {
-      this.comprobarUser();
-    }, 100);
-    if (this.valido) {
+    // console.log(this.nombre);
+    // console.log(this.logado);
+
+  }
+  manejarComprobacion() {
+    if (this.valido || this.logado) {
       clearInterval(this.id);
     }
+    this.id = setInterval(() => {
+      this.comprobarUser();
+      this.buscarUsuario();
+      }, 100);
+
   }
 
   login() {
@@ -36,8 +55,13 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    this.logado = false;
     this.valido = false;
     this.auth.logout();
+    this.auth.deleteUser();
+    this.manejarComprobacion();
+    location.reload();
+    this.router.navigateByUrl('/home');
   }
 
   comprobarUser() {
@@ -51,6 +75,7 @@ export class NavbarComponent implements OnInit {
       }
       if (this.profile !== undefined) {
         this.valido = true;
+        clearInterval(this.id);
       }
     }
   }

@@ -10,10 +10,12 @@ import { Router } from '@angular/router';
 })
 export class PurchaseComponent implements OnInit {
   profile: any;
+  perfil: any;
   facebook: boolean;
   google: boolean;
   fuente: string;
   erroneo: boolean;
+  valido: boolean;
 
   constructor(public auth: AuthService, private router: Router) {
     auth.handleAuthentication();
@@ -22,10 +24,17 @@ export class PurchaseComponent implements OnInit {
   ngOnInit() {
     this.erroneo = false;
     this.obtenerPerfil();
+    this.buscarUsuario();
     this.facebook = false;
     this.google = false;
     if (this.profile) {
       this.comprobarFuente();
+    }
+  }
+
+  buscarUsuario() {
+    if (this.auth.estaAutenticado()) {
+      this.perfil = this.auth.getUserLoggedIn();
     }
   }
 
@@ -53,18 +62,15 @@ export class PurchaseComponent implements OnInit {
   }
 
   guardar( forma: NgForm ) {
-    console.log(forma.value);
-    console.log(forma.value.email);
-    console.log(forma.value.Password);
-    this.auth.userPurchase(forma.value.plan, forma.value.duracion, forma.value.inicio, forma.value.forma_pago)
+    const id = this.perfil.id;
+    this.auth.userPurchase(forma.value.plan, forma.value.inicio, forma.value.forma_pago, id)
       .subscribe(res => {
-          console.log(res);
-
+          this.valido = true;
         },
         error => {
           this.erroneo = true;
+            this.valido =false;
         },
-        () => this.navigate()
       );
   }
 

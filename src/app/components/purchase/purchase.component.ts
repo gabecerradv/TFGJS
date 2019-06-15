@@ -63,18 +63,14 @@ export class PurchaseComponent implements OnInit {
 
   guardar( forma: NgForm ) {
     const id = this.perfil.id;
-    this.auth.userPurchase(forma.value.plan, forma.value.duracion, forma.value.inicio, forma.value.forma_pago, id)
+    this.auth.userPurchase(forma.value.plan, forma.value.inicio, forma.value.forma_pago, id)
       .subscribe(res => {
-          console.log(res);
-          setTimeout(() => {
-            this.navigate();
-          }, 3000);
           this.valido = true;
         },
         error => {
           this.erroneo = true;
+            this.valido =false;
         },
-        () => this.navigate()
       );
   }
 

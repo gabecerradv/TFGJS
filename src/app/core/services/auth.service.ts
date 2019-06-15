@@ -5,8 +5,8 @@ import * as auth0 from 'auth0-js';
 
 @Injectable()
 export class AuthService {
-  public isUserLoggedIn: boolean;
-  // public usserLogged: any;
+    public isUserLoggedIn: boolean;
+    // public usserLogged: any;
 
   private _idToken: string;
   private _accessToken: string;
@@ -48,59 +48,57 @@ export class AuthService {
         return this.http.get('http://tfg.local/api/users/' + usuario + '/' + contrasena);
     }
 
-  userNewsletter(usuario: string) {
-    return this.http.post('http://tfg.local/', {
-      email: usuario
-    });
-  }
+    userNewsletter(usuario: string) {
+        return this.http.post('http://tfg.local/api/newsletters', {
+            email: usuario
+        });
+    }
 
-  userRegister(nombre, apellido, apellido2, userEmail, userNick, userDni, contrasena, dir) {
-    return this.http.post('http://tfg.local/api/users', {
-        name: nombre,
-        email: userEmail,
-        password: contrasena,
-        nick: userNick,
-        surname: apellido,
-        secondSurname: apellido2,
-        dni: userDni,
-        direction: dir
-    });
-  }
+    userRegister(nombre, apellido, apellido2, userEmail, userNick, userDni, contrasena, dir) {
+        return this.http.post('http://tfg.local/api/users', {
+            name: nombre,
+            email: userEmail,
+            password: contrasena,
+            nick: userNick,
+            surname: apellido,
+            secondSurname: apellido2,
+            dni: userDni,
+            direction: dir
+        });
+    }
 
-  userPurchase(tipoPlan: string, duracionContrato: number, fechaInicio: string, formaPago: number, idUser: number) {
-    return this.http.post('http://tfg.local/api/programs', {
-      id: idUser,
-      tipo: tipoPlan,
-      duracion: duracionContrato,
-      fecha: fechaInicio,
-      pago: formaPago,
-    });
-  }
+    userPurchase(tipoPlan: string, fechaInicio: string, formaPago: number, idUser: number) {
+        return this.http.post('http://tfg.local/api/clients', {
+            user_id: idUser,
+            program_id: tipoPlan,
+            payment: formaPago,
+            start_date: fechaInicio,
+        });
+    }
 
-  userProgress(idUser: number, pesoUsuario: number, fechaPeso: string) {
-    return this.http.post('https://reqres.in/api/login', {
-      id: idUser,
-      dia: fechaPeso,
-      peso: pesoUsuario
-    });
-  }
+    userProgress(idUser: number, pesoUsuario: number, fechaPeso: string
+    ) {
+        return this.http.post('http://tfg.local/api/progress', {
+            user_id: idUser,
+            last_date: fechaPeso,
+            weight: pesoUsuario
+        });
+    }
 
-  loadUserProgress(idUser: number) {
-    return this.http.post('https://reqres.in/api/login', {
-      id: idUser
-    });
-  }
+    loadUserProgress(idUser: number) {
+        return this.http.get('http://tfg.local/api/progress/' + idUser, {
+        });
+    }
 
-  userFreeDay(nombre: string, emailU: string, tel: number, dniU: string, fechaU: string, horaU: string) {
-    return this.http.post('https://reqres.in/api/login', {
-      name: nombre,
-      email: emailU,
-      telefono: tel,
-      dni: dniU,
-      fecha: fechaU,
-      hora: horaU
-    });
-  }
+    userFreeDay(nombre: string, tel: number, dniU: string, fechaU: string,
+    ) {
+        return this.http.post('http://tfg.local/api/free_trials', {
+            name: nombre,
+            tlf: tel,
+            dni: dniU,
+            trial_date: fechaU,
+        });
+    }
 
     get accessToken()
         :

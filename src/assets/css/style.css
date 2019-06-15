@@ -679,11 +679,8 @@ background:#fe625b;
 }
 
 .results{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-content: space-around;
+    width: 100%;
+
 }
 
 /*Fin publicidiad*/

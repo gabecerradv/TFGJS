@@ -44,6 +44,7 @@ export class RegisterComponent implements OnInit {
           },
           error => {
             this.erroneo = true;
+              this.valido =false;
           },
           () => this.navigate()
         );

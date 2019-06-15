@@ -94,26 +94,6 @@
               </div>
 
               <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
-                <label class="col-lg-3 col-md-3 form-group contact-forms">*Email:</label>
-                <div class="col-lg-8 col-md-8 form-group contact-forms">
-
-                  <input type="email" class="form-control"
-                         placeholder="*Email" id="email"
-                         name="email"
-                         ngModel
-                         pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
-                         title="ejemplo@hotmail.com"
-                         required="required"
-                         #email="ngModel">
-                  <div *ngIf="email.errors?.required && email.dirty" class="alert-danger">
-                    Este campo es obligatorio
-                  </div>
-                  <div *ngIf="email.errors?.pattern" class="alert-danger">
-                    Este campo debe ser un correo electrónico válido
-                  </div>
-                </div>
-              </div>
-              <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
                 <label class="col-lg-3 col-md-3 form-group contact-forms">*Teléfono movil:</label>
                 <div class="col-lg-8 col-md-8 form-group contact-forms">
                   <input type="tel" class="form-control"
@@ -170,19 +150,6 @@
                 </div>
               </div>
 
-              <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
-                <label class="col-lg-3 col-md-3 form-group contact-forms">*Hora:</label>
-                <div class="col-lg-8 col-md-8 form-group contact-forms">
-                  <input type="time" class="form-control" id="hora"
-                         name="hora"
-                         ngModel
-                         #hora="ngModel"
-                         required="required"
-                         min="9:00"
-                         max="19:00"
-                         value="13:30">
-                </div>
-              </div>
               <div *ngIf="valido" class="h3 alert-success">
                 Solicitud guardada correctamente, te esperamos!
               </div>

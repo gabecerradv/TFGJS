@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
   buscarUsuario() {
     if (this.auth.estaAutenticado()) {
       const resp = this.auth.getUserLoggedIn();
-      this.nombre = resp.nombre;
+      this.nombre = resp.name;
       if (this.nombre !== undefined) {
         this.logado = true;
         clearInterval(this.id);

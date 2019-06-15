@@ -33,6 +33,7 @@ valido: boolean;
         },
         error => {
           this.erroneo = true;
+          this.valido =false;
         },
         // () => this.navigate()
        );

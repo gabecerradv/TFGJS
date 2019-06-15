@@ -67,12 +67,12 @@ export class AuthService {
         });
     }
 
-    userPurchase(tipoPlan: string, formaPago: number, fechaInicio: string, idUser: number) {
+    userPurchase(tipoPlan: string, fechaInicio: string, formaPago: number, idUser: number) {
         return this.http.post('http://tfg.local/api/clients', {
             user_id: idUser,
             program_id: tipoPlan,
-            start_date: fechaInicio,
             payment: formaPago,
+            start_date: fechaInicio,
         });
     }
 

@@ -23,14 +23,15 @@ export class EvolutionComponent implements OnInit {
 
   ngOnInit() {
     this.obtenerPerfil();
-    this.buscarUsuario();
-    this.facebook = false;
-    this.google = false;
-    this.datos = [];
-    if (this.profile) {
-      this.comprobarFuente();
-    }
-    // this.datos = [
+      this.buscarUsuario();
+      this.facebook = false;
+      this.google = false;
+      this.datos = [];
+      if (this.profile) {
+          this.comprobarFuente();
+      }
+      this.obtenerProgreso();
+      // this.datos = [
     //   {
     //     dia: '19/07/19',
     //     peso: 115
@@ -77,25 +78,20 @@ export class EvolutionComponent implements OnInit {
     console.log(forma.value);
     this.auth.userProgress(this.id, forma.value.peso, forma.value.fecha)
       .subscribe(res => {
-          console.log(res);
-          setTimeout(() => {
-            this.navigate();
-          }, 3000);
           this.valido = true;
-
-
+          this.obtenerProgreso();
         },
         error => {
           this.erroneo = true;
+            this.valido =false;
         });
   }
 
   obtenerProgreso() {
     this.auth.loadUserProgress(this.id)
       .subscribe(res => {
-          console.log(res);
-          this.datos = [res];
-
+          console.log(res['data']);
+          this.datos = [res['data']];
         },
         error => {
           this.erroneo = true;

@@ -38,6 +38,7 @@ export class FreeDayComponent implements OnInit {
           },
           error => {
             this.erroneo = true;
+              this.valido =false;
           });
     }
   }

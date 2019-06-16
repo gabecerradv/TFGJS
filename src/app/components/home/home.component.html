@@ -357,8 +357,8 @@
                 </ul>
               </div>
               <div class="buy-buttn ">
-                <button *ngIf="!auth.isAuthenticated()" (click)="login()" class="w3_play_icon1">Ingresar</button>
-                <a *ngIf="auth.isAuthenticated()" [routerLink]="['/purchase']" class="w3_play_icon1">Contratar</a>
+                <button *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']" class="w3_play_icon1">Ingresar</button>
+                <a *ngIf="auth.isAuthenticated() || auth.estaAutenticado()" [routerLink]="['/purchase']" class="w3_play_icon1">Contratar</a>
               </div>
             </div>
           </div>
@@ -382,8 +382,8 @@
               </ul>
             </div>
             <div class="buy-buttn ">
-              <button *ngIf="!auth.isAuthenticated()" (click)="login()" class="w3_play_icon1">Ingresar</button>
-              <a *ngIf="auth.isAuthenticated()" [routerLink]="['/purchase']" class="w3_play_icon1">Contratar</a>
+              <button *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']" class="w3_play_icon1">Ingresar</button>
+              <a *ngIf="auth.isAuthenticated() || auth.estaAutenticado()" [routerLink]="['/purchase']" class="w3_play_icon1">Contratar</a>
             </div>
           </div>
         </div>
@@ -408,8 +408,8 @@
                 </ul>
               </div>
               <div class="buy-buttn ">
-                <button *ngIf="!auth.isAuthenticated()" (click)="login()" class="w3_play_icon1">Ingresar</button>
-                <a *ngIf="auth.isAuthenticated()" [routerLink]="['/purchase']" class="w3_play_icon1">Contratar</a>
+                <button *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']" class="w3_play_icon1">Ingresar</button>
+                <a *ngIf="auth.isAuthenticated() || auth.estaAutenticado()" [routerLink]="['/purchase']" class="w3_play_icon1">Contratar</a>
               </div>
             </div>
           </div>

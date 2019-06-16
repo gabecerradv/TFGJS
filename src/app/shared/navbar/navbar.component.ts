@@ -34,11 +34,8 @@ export class NavbarComponent implements OnInit {
         clearInterval(this.id);
       }
     }
-
-    // console.log(this.nombre);
-    // console.log(this.logado);
-
   }
+
   manejarComprobacion() {
     if (this.valido || this.logado) {
       clearInterval(this.id);

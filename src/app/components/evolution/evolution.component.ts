@@ -31,16 +31,6 @@ export class EvolutionComponent implements OnInit {
           this.comprobarFuente();
       }
       this.obtenerProgreso();
-      // this.datos = [
-    //   {
-    //     dia: '19/07/19',
-    //     peso: 115
-    //   },
-    //   {
-    //     dia: '29/07/19',
-    //     peso: 110
-    //   }
-    // ];
   }
 
   buscarUsuario() {
@@ -74,8 +64,6 @@ export class EvolutionComponent implements OnInit {
   }
 
   guardar( forma: NgForm ) {
-    console.log(forma);
-    console.log(forma.value);
     this.auth.userProgress(this.id, forma.value.peso, forma.value.fecha)
       .subscribe(res => {
           this.valido = true;

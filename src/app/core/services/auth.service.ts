@@ -62,7 +62,7 @@ export class AuthService {
             surname: apellido,
             secondSurname: apellido2,
             dni: userDni,
-            direction: dir
+            address: dir
         });
     }
 

@@ -66,8 +66,8 @@ export class AuthService {
         });
     }
 
-  userContact(nombre, apellido, apellido2 = null, userEmail, movil, home = null, comentario, tipo) {
-    return this.http.post('http://tfg.local/api/users', {
+  userContact(nombre: string, apellido:string, apellido2:string = null, userEmail:string, movil:number, home:number = null, comentario:string, tipo:number) {
+    return this.http.post('http://tfg.local/api/contact', {
       contact_type: tipo,
       name: nombre,
       surname: apellido,

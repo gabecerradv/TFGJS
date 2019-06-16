@@ -357,7 +357,7 @@
                 </ul>
               </div>
               <div class="buy-buttn ">
-                <button *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']" class="w3_play_icon1">Ingresar</button>
+                <button *ngIf="!auth.isAuthenticated() && !auth.estaAutenticado()" [routerLink]="['/login']" class="w3_play_icon1">Ingresar</button>
                 <a *ngIf="auth.isAuthenticated() || auth.estaAutenticado()" [routerLink]="['/purchase']" class="w3_play_icon1">Contratar</a>
               </div>
             </div>
@@ -382,7 +382,7 @@
               </ul>
             </div>
             <div class="buy-buttn ">
-              <button *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']" class="w3_play_icon1">Ingresar</button>
+              <button *ngIf="!auth.isAuthenticated() && !auth.estaAutenticado()" [routerLink]="['/login']" class="w3_play_icon1">Ingresar</button>
               <a *ngIf="auth.isAuthenticated() || auth.estaAutenticado()" [routerLink]="['/purchase']" class="w3_play_icon1">Contratar</a>
             </div>
           </div>
@@ -408,7 +408,7 @@
                 </ul>
               </div>
               <div class="buy-buttn ">
-                <button *ngIf="!auth.isAuthenticated()" [routerLink]="['/login']" class="w3_play_icon1">Ingresar</button>
+                <button *ngIf="!auth.isAuthenticated() && !auth.estaAutenticado()" [routerLink]="['/login']" class="w3_play_icon1">Ingresar</button>
                 <a *ngIf="auth.isAuthenticated() || auth.estaAutenticado()" [routerLink]="['/purchase']" class="w3_play_icon1">Contratar</a>
               </div>
             </div>

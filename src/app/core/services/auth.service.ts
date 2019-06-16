@@ -73,7 +73,7 @@ export class AuthService {
       surname: apellido,
       secondSurname: apellido2,
       email: userEmail,
-      coment: comentario,
+      comment: comentario,
       mobil_phone: movil,
       landline: home,
     });

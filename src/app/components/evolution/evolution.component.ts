@@ -64,8 +64,6 @@ export class EvolutionComponent implements OnInit {
   }
 
   guardar( forma: NgForm ) {
-    console.log(forma);
-    console.log(forma.value);
     this.auth.userProgress(this.id, forma.value.peso, forma.value.fecha)
       .subscribe(res => {
           this.valido = true;

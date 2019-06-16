@@ -19,9 +19,6 @@ valido: boolean;
   }
 
   guardar( forma: NgForm ) {
-    console.log(forma);
-    console.log(forma.value.email);
-    console.log(forma.value.Password);
     this.auth.userNewsletter(forma.value.email)
       .subscribe(res => {
           console.log(res);

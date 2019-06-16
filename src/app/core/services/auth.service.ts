@@ -6,7 +6,6 @@ import * as auth0 from 'auth0-js';
 @Injectable()
 export class AuthService {
     public isUserLoggedIn: boolean;
-    // public usserLogged: any;
 
   private _idToken: string;
   private _accessToken: string;

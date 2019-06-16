@@ -23,8 +23,6 @@ export class RegisterComponent implements OnInit {
 
   guardar(forma: NgForm): void {
     if (!this.alertDni && this.contIguales) {
-      // console.log(forma);
-      // console.log(forma.value);
       const p1 = forma.value.Password1;
       const apellido = forma.value.apellido;
       const apellido2 = forma.value.apellido2;

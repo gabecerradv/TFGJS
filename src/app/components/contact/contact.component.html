@@ -109,8 +109,7 @@
                          name="apellido2"
                          ngModel
                          pattern="^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ]{2,}$"
-                         placeholder="*2º apellido"
-                         required="required"
+                         placeholder="2º apellido"
                          title="ej: García"
                          #apellido2="ngModel">
                   <div *ngIf="apellido2.errors?.required && apellido2.dirty">
@@ -145,7 +144,6 @@
                          id="fijo"
                          ngModel
                          pattern="^[9]\d{8}$"
-                         required
                          name="fijo"
                          title="teléfono fijo"
                          #fijo="ngModel">
@@ -217,6 +215,9 @@
               <label> *Acepto los términos y condiciones de uso</label>
               <div *ngIf="valido" class="h3 alert-success">
                 Petición recibida correctamente, nos pondremos en contacto contigo!
+              </div>
+              <div *ngIf="erroneo" class="h4 alert-danger">
+                No se ha enviado la consulta, consulta en tu gimnasio.
               </div>
               <div class="row agile-wls-contact-mid mb-lg-4 mb-3">
 

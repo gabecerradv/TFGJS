@@ -67,6 +67,19 @@ export class AuthService {
         });
     }
 
+  userContact(nombre, apellido, apellido2 = null, userEmail, movil, home = null, comentario, tipo) {
+    return this.http.post('http://tfg.local/api/users', {
+      contact_type: tipo,
+      name: nombre,
+      surname: apellido,
+      secondSurname: apellido2,
+      email: userEmail,
+      coment: comentario,
+      mobil_phone: movil,
+      landline: home,
+    });
+  }
+
     userPurchase(tipoPlan: string, fechaInicio: string, formaPago: number, idUser: number) {
         return this.http.post('http://tfg.local/api/clients', {
             user_id: idUser,

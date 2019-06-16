@@ -31,16 +31,6 @@ export class EvolutionComponent implements OnInit {
           this.comprobarFuente();
       }
       this.obtenerProgreso();
-      // this.datos = [
-    //   {
-    //     dia: '19/07/19',
-    //     peso: 115
-    //   },
-    //   {
-    //     dia: '29/07/19',
-    //     peso: 110
-    //   }
-    // ];
   }
 
   buscarUsuario() {

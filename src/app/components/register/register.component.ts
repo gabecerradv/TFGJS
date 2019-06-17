@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.erroneo = false;
   }
 
   guardar(forma: NgForm): void {
@@ -35,17 +36,12 @@ export class RegisterComponent implements OnInit {
       this.auth.userRegister(nombre, apellido, apellido2, email, nick, dni, p1, direccion)
         .subscribe(res => {
             console.log(res);
-            setTimeout(() => {
-              this.navigate();
-            }, 3000);
             this.valido = true;
           },
           error => {
             this.erroneo = true;
               this.valido =false;
-          },
-          () => this.navigate()
-        );
+          });
     }
   }
 
